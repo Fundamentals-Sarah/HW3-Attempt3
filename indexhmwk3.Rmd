@@ -1,0 +1,24 @@
+linkGit1="https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Maternalmortalityratio.csv"
+
+matmort=rio::import(file = linkGit1)
+str(matmort)
+head(matmort)
+tail(matmort)
+names(matmort)
+names(matmort)[names(matmort)!='region']
+matmort_subset <- matmort[, c(1,3,6)]
+names(matmort_subset)[3]<- "Region"
+names(matmort_subset)[2]<- "Maternal_Death_Rate"
+names(matmort_subset)[1]<- "Country_Name"
+matmort_subset$identification[grep("[^a-zA-Z\\s]",matmort_subset$identification,perl = T)]
+matmort_subset$Maternal_Death_Rate[grep("\\D",matmort_subset$Maternal_Death_Rate)]
+table(matmort_subset$Region)
+str(matmort_subset)
+saveRDS(matmort_subset,"matmortality.RDS")
+
+matmortalityRDS=readRDS("matmortality.RDS")
+str(matmortalityRDS)
+
+write.csv(matmort_subset,"maternal_cleaned.csv", row.names=FALSE)
+maternalcleanedCSV=read.csv("maternal_cleaned.csv")
+str(maternalcleanedCSV)
