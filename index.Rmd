@@ -223,7 +223,7 @@ infmort_subset$Country_Name[grep("[^a-zA-Z\\s]",infmort_subset$Country_Name,perl
 ```
 
 ```{r}
-sapply(strsplit(lifeexp_subset$Country_Name, split = ' (', fixed = TRUE), `[`, 1)
+sapply(strsplit(infmort_subset$Country_Name, split = ' (', fixed = TRUE), `[`, 1)
 ```
 
 ```{r}
