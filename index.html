@@ -1687,7 +1687,7 @@ names(matmort_subset)[1]&lt;- &quot;Country_Name&quot;</code></pre>
 ##                                16                                 3 
 ##                     South America                        South Asia 
 ##                                12                                 8</code></pre>
-<pre class="r"><code>sapply(strsplit(matmort_subset$Country_Name, split = &#39;(&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>sapply(strsplit(matmort_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
 <pre><code>##   [1] &quot;Nigeria&quot;                           &quot;Chad&quot;                             
 ##   [3] &quot;South Sudan&quot;                       &quot;Central African Republic&quot;         
 ##   [5] &quot;Liberia&quot;                           &quot;Somalia&quot;                          
@@ -1755,7 +1755,7 @@ names(matmort_subset)[1]&lt;- &quot;Country_Name&quot;</code></pre>
 ## [129] &quot;Bahrain&quot;                           &quot;United States&quot;                    
 ## [131] &quot;China&quot;                             &quot;West Bank&quot;                        
 ## [133] &quot;Gaza Strip&quot;                        &quot;Iran&quot;                             
-## [135] &quot;Turkey &quot;                           &quot;Uruguay&quot;                          
+## [135] &quot;Turkey&quot;                            &quot;Uruguay&quot;                          
 ## [137] &quot;Portugal&quot;                          &quot;Ukraine&quot;                          
 ## [139] &quot;Lebanon&quot;                           &quot;Cyprus&quot;                           
 ## [141] &quot;Tajikistan&quot;                        &quot;Oman&quot;                             
@@ -1786,13 +1786,13 @@ names(matmort_subset)[1]&lt;- &quot;Country_Name&quot;</code></pre>
 ## [191] &quot;Australia&quot;                         &quot;Israel&quot;                           
 ## [193] &quot;Poland&quot;                            &quot;Belarus&quot;                          
 ## [195] &quot;Norway&quot;                            &quot;Cook Islands&quot;</code></pre>
-<pre class="r"><code>matmort_subset$Country_Name &lt;- sapply(strsplit(matmort_subset$Country_Name, split = &#39;(&#39;, fixed = TRUE), `[`, 1)</code></pre>
-<pre class="r"><code>matmort_subset</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Country_Name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Maternal_Death_Rate"],"name":[2],"type":["int"],"align":["right"]},{"label":["Region"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Nigeria","2":"993","3":"Africa","_rn_":"1"},{"1":"Chad","2":"748","3":"Africa","_rn_":"2"},{"1":"South Sudan","2":"692","3":"Africa","_rn_":"3"},{"1":"Central African Republic","2":"692","3":"Africa","_rn_":"4"},{"1":"Liberia","2":"628","3":"Africa","_rn_":"5"},{"1":"Somalia","2":"563","3":"Africa","_rn_":"6"},{"1":"Afghanistan","2":"521","3":"South Asia","_rn_":"7"},{"1":"Benin","2":"518","3":"Africa","_rn_":"8"},{"1":"Guinea-Bissau","2":"505","3":"Africa","_rn_":"9"},{"1":"Guinea","2":"494","3":"Africa","_rn_":"10"},{"1":"Lesotho","2":"478","3":"Africa","_rn_":"11"},{"1":"Madagascar","2":"445","3":"Africa","_rn_":"12"},{"1":"Congo, Democratic Republic of the","2":"427","3":"Africa","_rn_":"13"},{"1":"Burundi","2":"392","3":"Africa","_rn_":"14"},{"1":"Mauritania","2":"381","3":"Africa","_rn_":"15"},{"1":"Kenya","2":"379","3":"Africa","_rn_":"16"},{"1":"Mali","2":"367","3":"Africa","_rn_":"17"},{"1":"Cote d'Ivoire","2":"359","3":"Africa","_rn_":"18"},{"1":"Zimbabwe","2":"358","3":"Africa","_rn_":"19"},{"1":"Gambia, The","2":"354","3":"Africa","_rn_":"20"},{"1":"Sierra Leone","2":"354","3":"Africa","_rn_":"21"},{"1":"Niger","2":"350","3":"Africa","_rn_":"22"},{"1":"Togo","2":"349","3":"Africa","_rn_":"23"},{"1":"Haiti","2":"328","3":"Central America and the Caribbean","_rn_":"24"},{"1":"Eritrea","2":"291","3":"Africa","_rn_":"25"},{"1":"Tanzania","2":"276","3":"Africa","_rn_":"26"},{"1":"Nauru","2":"273","3":"Australia and Oceania","_rn_":"27"},{"1":"Cameroon","2":"258","3":"Africa","_rn_":"28"},{"1":"Sudan","2":"256","3":"Africa","_rn_":"29"},{"1":"Burkina Faso","2":"242","3":"Africa","_rn_":"30"},{"1":"Congo, Republic of the","2":"241","3":"Africa","_rn_":"31"},{"1":"Senegal","2":"237","3":"Africa","_rn_":"32"},{"1":"Ghana","2":"234","3":"Africa","_rn_":"33"},{"1":"Gabon","2":"233","3":"Africa","_rn_":"34"},{"1":"Rwanda","2":"229","3":"Africa","_rn_":"35"},{"1":"Venezuela","2":"227","3":"South America","_rn_":"36"},{"1":"Malawi","2":"225","3":"Africa","_rn_":"37"},{"1":"Ethiopia","2":"195","3":"Africa","_rn_":"38"},{"1":"Timor-Leste","2":"192","3":"East and Southeast Asia","_rn_":"39"},{"1":"Papua New Guinea","2":"189","3":"East and Southeast Asia","_rn_":"40"},{"1":"Burma","2":"185","3":"East and Southeast Asia","_rn_":"41"},{"1":"Angola","2":"183","3":"Africa","_rn_":"42"},{"1":"Comoros","2":"179","3":"Africa","_rn_":"43"},{"1":"Equatorial Guinea","2":"174","3":"Africa","_rn_":"44"},{"1":"Uganda","2":"170","3":"Africa","_rn_":"45"},{"1":"Tuvalu","2":"170","3":"Australia and Oceania","_rn_":"46"},{"1":"Djibouti","2":"162","3":"Africa","_rn_":"47"},{"1":"Pakistan","2":"155","3":"South Asia","_rn_":"48"},{"1":"Marshall Islands","2":"155","3":"Australia and Oceania","_rn_":"49"},{"1":"Botswana","2":"155","3":"Africa","_rn_":"50"},{"1":"Bolivia","2":"146","3":"South America","_rn_":"51"},{"1":"Nepal","2":"142","3":"South Asia","_rn_":"52"},{"1":"Indonesia","2":"140","3":"East and Southeast Asia","_rn_":"53"},{"1":"Namibia","2":"139","3":"Africa","_rn_":"54"},{"1":"Cambodia","2":"137","3":"East and Southeast Asia","_rn_":"55"},{"1":"Jamaica","2":"130","3":"Central America and the Caribbean","_rn_":"56"},{"1":"Micronesia, Federated States of","2":"129","3":"Australia and Oceania","_rn_":"57"},{"1":"Dominican Republic","2":"124","3":"Central America and the Caribbean","_rn_":"58"},{"1":"Solomon Islands","2":"123","3":"Australia and Oceania","_rn_":"59"},{"1":"South Africa","2":"118","3":"Africa","_rn_":"60"},{"1":"Eswatini","2":"118","3":"Africa","_rn_":"61"},{"1":"Yemen","2":"118","3":"Middle East","_rn_":"62"},{"1":"Bangladesh","2":"115","3":"South Asia","_rn_":"63"},{"1":"Laos","2":"112","3":"East and Southeast Asia","_rn_":"64"},{"1":"Samoa","2":"101","3":"Australia and Oceania","_rn_":"65"},{"1":"Vanuatu","2":"100","3":"Australia and Oceania","_rn_":"66"},{"1":"Guatemala","2":"94","3":"Central America and the Caribbean","_rn_":"67"},{"1":"Palau","2":"89","3":"Australia and Oceania","_rn_":"68"},{"1":"Zambia","2":"85","3":"Africa","_rn_":"69"},{"1":"Philippines","2":"84","3":"East and Southeast Asia","_rn_":"70"},{"1":"Suriname","2":"84","3":"South America","_rn_":"71"},{"1":"Mozambique","2":"82","3":"Africa","_rn_":"72"},{"1":"Kiribati","2":"80","3":"Australia and Oceania","_rn_":"73"},{"1":"India","2":"80","3":"South Asia","_rn_":"74"},{"1":"Bahamas, The","2":"76","3":"Central America and the Caribbean","_rn_":"75"},{"1":"Guyana","2":"75","3":"South America","_rn_":"76"},{"1":"Sao Tome and Principe","2":"75","3":"Africa","_rn_":"77"},{"1":"Saint Kitts and Nevis","2":"74","3":"Central America and the Caribbean","_rn_":"78"},{"1":"Morocco","2":"70","3":"Africa","_rn_":"79"},{"1":"Belize","2":"67","3":"Central America and the Caribbean","_rn_":"80"},{"1":"Korea, North","2":"67","3":"East and Southeast Asia","_rn_":"81"},{"1":"Tonga","2":"67","3":"Australia and Oceania","_rn_":"82"},{"1":"Brazil","2":"67","3":"South America","_rn_":"83"},{"1":"Iraq","2":"66","3":"Middle East","_rn_":"84"},{"1":"Mauritius","2":"66","3":"Africa","_rn_":"85"},{"1":"Algeria","2":"62","3":"Africa","_rn_":"86"},{"1":"Nicaragua","2":"60","3":"Central America and the Caribbean","_rn_":"87"},{"1":"Colombia","2":"59","3":"South America","_rn_":"88"},{"1":"Libya","2":"59","3":"Africa","_rn_":"89"},{"1":"Paraguay","2":"58","3":"South America","_rn_":"90"},{"1":"Saint Vincent and the Grenadines","2":"56","3":"Central America and the Caribbean","_rn_":"91"},{"1":"Ecuador","2":"55","3":"South America","_rn_":"92"},{"1":"Trinidad and Tobago","2":"54","3":"Central America and the Caribbean","_rn_":"93"},{"1":"Peru","2":"51","3":"South America","_rn_":"94"},{"1":"Grenada","2":"48","3":"Central America and the Caribbean","_rn_":"95"},{"1":"Vietnam","2":"48","3":"East and Southeast Asia","_rn_":"96"},{"1":"Bhutan","2":"47","3":"South Asia","_rn_":"97"},{"1":"Honduras","2":"47","3":"Central America and the Caribbean","_rn_":"98"},{"1":"Saint Lucia","2":"44","3":"Central America and the Caribbean","_rn_":"99"},{"1":"Kyrgyzstan","2":"42","3":"Central Asia","_rn_":"100"},{"1":"Mexico","2":"42","3":"North America","_rn_":"101"},{"1":"Seychelles","2":"42","3":"Africa","_rn_":"102"},{"1":"Mongolia","2":"41","3":"East and Southeast Asia","_rn_":"103"},{"1":"Cabo Verde","2":"40","3":"Africa","_rn_":"104"},{"1":"El Salvador","2":"39","3":"Central America and the Caribbean","_rn_":"105"},{"1":"Panama","2":"37","3":"Central America and the Caribbean","_rn_":"106"},{"1":"Dominica","2":"36","3":"Central America and the Caribbean","_rn_":"107"},{"1":"Tunisia","2":"36","3":"Africa","_rn_":"108"},{"1":"Brunei","2":"36","3":"East and Southeast Asia","_rn_":"109"},{"1":"Antigua and Barbuda","2":"35","3":"Central America and the Caribbean","_rn_":"110"},{"1":"Cuba","2":"35","3":"Central America and the Caribbean","_rn_":"111"},{"1":"Barbados","2":"35","3":"Central America and the Caribbean","_rn_":"112"},{"1":"Thailand","2":"34","3":"East and Southeast Asia","_rn_":"113"},{"1":"Argentina","2":"33","3":"South America","_rn_":"114"},{"1":"Maldives","2":"32","3":"South Asia","_rn_":"115"},{"1":"Jordan","2":"31","3":"Middle East","_rn_":"116"},{"1":"Fiji","2":"30","3":"Australia and Oceania","_rn_":"117"},{"1":"Uzbekistan","2":"26","3":"Central Asia","_rn_":"118"},{"1":"Malaysia","2":"26","3":"East and Southeast Asia","_rn_":"119"},{"1":"Costa Rica","2":"24","3":"Central America and the Caribbean","_rn_":"120"},{"1":"Georgia","2":"20","3":"Central Asia","_rn_":"121"},{"1":"Syria","2":"20","3":"Middle East","_rn_":"122"},{"1":"Latvia","2":"19","3":"Europe","_rn_":"123"},{"1":"Moldova","2":"19","3":"Europe","_rn_":"124"},{"1":"Armenia","2":"19","3":"Central Asia","_rn_":"125"},{"1":"Sri Lanka","2":"18","3":"South Asia","_rn_":"126"},{"1":"Azerbaijan","2":"18","3":"Central Asia","_rn_":"127"},{"1":"Egypt","2":"17","3":"Africa","_rn_":"128"},{"1":"Bahrain","2":"17","3":"Middle East","_rn_":"129"},{"1":"United States","2":"17","3":"North America","_rn_":"130"},{"1":"China","2":"16","3":"East and Southeast Asia","_rn_":"131"},{"1":"West Bank","2":"16","3":"Middle East","_rn_":"132"},{"1":"Gaza Strip","2":"16","3":"Middle East","_rn_":"133"},{"1":"Iran","2":"16","3":"Middle East","_rn_":"134"},{"1":"Turkey","2":"15","3":"Middle East","_rn_":"135"},{"1":"Uruguay","2":"15","3":"South America","_rn_":"136"},{"1":"Portugal","2":"15","3":"Europe","_rn_":"137"},{"1":"Ukraine","2":"15","3":"Europe","_rn_":"138"},{"1":"Lebanon","2":"15","3":"Middle East","_rn_":"139"},{"1":"Cyprus","2":"14","3":"Europe","_rn_":"140"},{"1":"Tajikistan","2":"14","3":"Central Asia","_rn_":"141"},{"1":"Oman","2":"13","3":"Middle East","_rn_":"142"},{"1":"Canada","2":"12","3":"North America","_rn_":"143"},{"1":"Romania","2":"12","3":"Europe","_rn_":"144"},{"1":"Luxembourg","2":"12","3":"Europe","_rn_":"145"},{"1":"Hungary","2":"12","3":"Europe","_rn_":"146"},{"1":"Andorra","2":"11","3":"Europe","_rn_":"147"},{"1":"Serbia","2":"11","3":"Europe","_rn_":"148"},{"1":"Puerto Rico","2":"11","3":"Central America and the Caribbean","_rn_":"149"},{"1":"Chile","2":"10","3":"South America","_rn_":"150"},{"1":"Kazakhstan","2":"10","3":"Central Asia","_rn_":"151"},{"1":"Russia","2":"9","3":"Central Asia","_rn_":"152"},{"1":"Lithuania","2":"8","3":"Europe","_rn_":"153"},{"1":"Kuwait","2":"8","3":"Middle East","_rn_":"154"},{"1":"United Kingdom","2":"8","3":"Europe","_rn_":"155"},{"1":"Finland","2":"8","3":"Europe","_rn_":"156"},{"1":"Malta","2":"8","3":"Europe","_rn_":"157"},{"1":"San Marino","2":"8","3":"Europe","_rn_":"158"},{"1":"France","2":"7","3":"Europe","_rn_":"159"},{"1":"Albania","2":"7","3":"Europe","_rn_":"160"},{"1":"New Zealand","2":"7","3":"Australia and Oceania","_rn_":"161"},{"1":"Saudi Arabia","2":"7","3":"Middle East","_rn_":"162"},{"1":"Italy","2":"6","3":"Europe","_rn_":"163"},{"1":"Bosnia and Herzegovina","2":"6","3":"Europe","_rn_":"164"},{"1":"Montenegro","2":"6","3":"Europe","_rn_":"165"},{"1":"Singapore","2":"6","3":"East and Southeast Asia","_rn_":"166"},{"1":"Austria","2":"6","3":"Europe","_rn_":"167"},{"1":"Bulgaria","2":"6","3":"Europe","_rn_":"168"},{"1":"Turkmenistan","2":"5","3":"Central Asia","_rn_":"169"},{"1":"Estonia","2":"5","3":"Europe","_rn_":"170"},{"1":"Greece","2":"5","3":"Europe","_rn_":"171"},{"1":"Switzerland","2":"5","3":"Europe","_rn_":"172"},{"1":"Monaco","2":"5","3":"Europe","_rn_":"173"},{"1":"Ireland","2":"4","3":"Europe","_rn_":"174"},{"1":"Qatar","2":"4","3":"Middle East","_rn_":"175"},{"1":"Netherlands","2":"4","3":"Europe","_rn_":"176"},{"1":"Belgium","2":"4","3":"Europe","_rn_":"177"},{"1":"Denmark","2":"4","3":"Europe","_rn_":"178"},{"1":"Korea, South","2":"4","3":"East and Southeast Asia","_rn_":"179"},{"1":"Sweden","2":"4","3":"Europe","_rn_":"180"},{"1":"Slovakia","2":"4","3":"Europe","_rn_":"181"},{"1":"Germany","2":"4","3":"Europe","_rn_":"182"},{"1":"Japan","2":"3","3":"East and Southeast Asia","_rn_":"183"},{"1":"Spain","2":"3","3":"Europe","_rn_":"184"},{"1":"North Macedonia","2":"3","3":"Europe","_rn_":"185"},{"1":"Iceland","2":"3","3":"Europe","_rn_":"186"},{"1":"Czechia","2":"3","3":"Europe","_rn_":"187"},{"1":"Croatia","2":"3","3":"Europe","_rn_":"188"},{"1":"United Arab Emirates","2":"3","3":"Middle East","_rn_":"189"},{"1":"Slovenia","2":"3","3":"Europe","_rn_":"190"},{"1":"Australia","2":"2","3":"Australia and Oceania","_rn_":"191"},{"1":"Israel","2":"2","3":"Middle East","_rn_":"192"},{"1":"Poland","2":"2","3":"Europe","_rn_":"193"},{"1":"Belarus","2":"1","3":"Europe","_rn_":"194"},{"1":"Norway","2":"1","3":"Europe","_rn_":"195"},{"1":"Cook Islands","2":"0","3":"Australia and Oceania","_rn_":"196"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<pre class="r"><code>matmort_subset$Country_Name &lt;- sapply(strsplit(matmort_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>matmort_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,matmort_subset$Country_Name,perl = T)]</code></pre>
+<pre><code>##  [1] &quot;Guinea-Bissau&quot;                     &quot;Congo, Democratic Republic of the&quot;
+##  [3] &quot;Cote d&#39;Ivoire&quot;                     &quot;Gambia, The&quot;                      
+##  [5] &quot;Congo, Republic of the&quot;            &quot;Timor-Leste&quot;                      
+##  [7] &quot;Micronesia, Federated States of&quot;   &quot;Bahamas, The&quot;                     
+##  [9] &quot;Korea, North&quot;                      &quot;Korea, South&quot;</code></pre>
 <pre class="r"><code>matmort_subset$Country_Name &lt;- trimws(matmort_subset$Country_Name)
 matmort_subset$Country_Name == trimws(matmort_subset$Country_Name)</code></pre>
 <pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
@@ -1839,6 +1839,750 @@ str(maternalcleanedCSV)</code></pre>
 ##  $ Country_Name       : chr  &quot;Nigeria&quot; &quot;Chad&quot; &quot;South Sudan&quot; &quot;Central African Republic&quot; ...
 ##  $ Maternal_Death_Rate: int  993 748 692 692 628 563 521 518 505 494 ...
 ##  $ Region             : chr  &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
+<pre class="r"><code>linkGit2=&quot;https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Lifeexpectancyatbirth.csv&quot;</code></pre>
+<pre class="r"><code>lifeexp=rio::import(file = linkGit2)</code></pre>
+<pre class="r"><code>str(lifeexp)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  6 variables:
+##  $ name               : chr  &quot;Monaco&quot; &quot;Singapore&quot; &quot;Macau&quot; &quot;Japan&quot; ...
+##  $ slug               : chr  &quot;monaco&quot; &quot;singapore&quot; &quot;macau&quot; &quot;japan&quot; ...
+##  $ years              : num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
+##  $ date_of_information: int  2024 2024 2024 2024 2024 2024 2024 2024 2024 2024 ...
+##  $ ranking            : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ region             : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
+<pre class="r"><code>head(lifeexp)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["years"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["date_of_information"],"name":[4],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[5],"type":["int"],"align":["right"]},{"label":["region"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"Monaco","2":"monaco","3":"89.8","4":"2024","5":"1","6":"Europe","_rn_":"1"},{"1":"Singapore","2":"singapore","3":"86.7","4":"2024","5":"2","6":"East and Southeast Asia","_rn_":"2"},{"1":"Macau","2":"macau","3":"85.3","4":"2024","5":"3","6":"East and Southeast Asia","_rn_":"3"},{"1":"Japan","2":"japan","3":"85.2","4":"2024","5":"4","6":"East and Southeast Asia","_rn_":"4"},{"1":"Canada","2":"canada","3":"84.2","4":"2024","5":"5","6":"North America","_rn_":"5"},{"1":"San Marino","2":"san-marino","3":"84.2","4":"2024","5":"6","6":"Europe","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code>tail(lifeexp)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["years"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["date_of_information"],"name":[4],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[5],"type":["int"],"align":["right"]},{"label":["region"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"Chad","2":"chad","3":"60.0","4":"2024","5":"222","6":"Africa","_rn_":"222"},{"1":"Sierra Leone","2":"sierra-leone","3":"59.4","4":"2024","5":"223","6":"Africa","_rn_":"223"},{"1":"Mozambique","2":"mozambique","3":"58.3","4":"2024","5":"224","6":"Africa","_rn_":"224"},{"1":"Somalia","2":"somalia","3":"56.5","4":"2024","5":"225","6":"Africa","_rn_":"225"},{"1":"Central African Republic","2":"central-african-republic","3":"56.4","4":"2024","5":"226","6":"Africa","_rn_":"226"},{"1":"Afghanistan","2":"afghanistan","3":"54.4","4":"2024","5":"227","6":"South Asia","_rn_":"227"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code>names(lifeexp)</code></pre>
+<pre><code>## [1] &quot;name&quot;                &quot;slug&quot;                &quot;years&quot;              
+## [4] &quot;date_of_information&quot; &quot;ranking&quot;             &quot;region&quot;</code></pre>
+<pre class="r"><code>lifeexp_subset &lt;- lifeexp[, c(1,3,6)]</code></pre>
+<pre class="r"><code>names(lifeexp_subset)[3]&lt;- &quot;Region&quot;
+names(lifeexp_subset)[2]&lt;- &quot;Life_Expectancy&quot;
+names(lifeexp_subset)[1]&lt;- &quot;Country_Name&quot;
+str(lifeexp_subset)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ Country_Name   : chr  &quot;Monaco&quot; &quot;Singapore&quot; &quot;Macau&quot; &quot;Japan&quot; ...
+##  $ Life_Expectancy: num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
+##  $ Region         : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
+<pre class="r"><code>lifeexp_subset$Life_Expectancy[grep(&quot;\\D&quot;,lifeexp_subset$Life_Expectancy)]</code></pre>
+<pre><code>##   [1] 89.8 86.7 85.3 85.2 84.2 84.2 83.9 83.8 83.6 83.6 83.5 83.4 83.4 83.1 82.9
+##  [16] 82.9 82.9 82.7 82.6 82.6 82.5 82.5 82.5 82.3 82.2 82.2 82.2 82.1 82.1 81.9
+##  [31] 81.9 81.9 81.9 81.8 81.7 81.6 81.3 81.1 80.9 80.9 80.9 80.7 80.4 80.3 80.3
+##  [46] 80.3 80.2 80.1 80.1 79.9 79.9 79.9 79.7 79.6 79.4 79.3 79.2 79.2 78.9 78.9
+##  [61] 78.9 78.8 78.8 78.7 78.7 78.6 78.5 78.5 78.4 78.3 78.2 78.2 77.9 77.7 77.7
+##  [76] 77.6 77.6 77.4 77.4 77.3 77.3 77.2 77.2 77.2 77.2 77.1 76.9 76.8 76.7 76.7
+##  [91] 76.7 76.7 76.6 76.6 76.5 76.5 76.5 76.4 76.3 76.3 76.3 76.2 76.1 76.1 76.1
+## [106] 76.1 75.9 75.9 75.8 75.7 75.7 75.6 75.5 75.4 75.3 75.2 75.2 75.2 74.9 74.9
+## [121] 74.8 74.8 74.7 74.7 74.6 74.5 74.5 74.3 74.3 74.2 73.7 73.7 73.6 73.5 73.5
+## [136] 73.3 73.1 73.1 72.9 72.9 72.8 72.7 72.6 72.5 72.4 72.4 72.3 72.1 71.9 71.9
+## [151] 71.9 71.4 70.8 70.8 70.6 70.5 70.5 70.4 70.4 70.3 70.3 70.1 70.1 70.1 69.7
+## [166] 68.9 68.8 68.6 68.5 68.4 68.2 68.2 68.1 67.8 67.8 67.7 67.7 67.5 67.2 66.9
+## [181] 66.6 66.4 65.9 65.9 65.9 65.6 64.6 64.5 64.2 64.2 63.9 63.2 63.2 62.9 62.6
+## [196] 62.2 61.6 60.9 60.7 60.3 60.2 59.4 58.3 56.5 56.4 54.4</code></pre>
+<pre class="r"><code>table(lifeexp_subset$Region)</code></pre>
+<pre><code>## 
+##                            Africa             Australia and Oceania 
+##                                55                                20 
+## Central America and the Caribbean                      Central Asia 
+##                                32                                 9 
+##           East and Southeast Asia                            Europe 
+##                                20                                49 
+##                       Middle East                     North America 
+##                                16                                 6 
+##                     South America                        South Asia 
+##                                12                                 8</code></pre>
+<pre class="r"><code>lifeexp_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,lifeexp_subset$Country_Name,perl = T)]</code></pre>
+<pre><code>##  [1] &quot;Korea, South&quot;                                 
+##  [2] &quot;Saint Helena, Ascension, and Tristan da Cunha&quot;
+##  [3] &quot;Turkey (Turkiye)&quot;                             
+##  [4] &quot;Bahamas, The&quot;                                 
+##  [5] &quot;Micronesia, Federated States of&quot;              
+##  [6] &quot;Korea, North&quot;                                 
+##  [7] &quot;Congo, Republic of the&quot;                       
+##  [8] &quot;Timor-Leste&quot;                                  
+##  [9] &quot;Gambia, The&quot;                                  
+## [10] &quot;Guinea-Bissau&quot;                                
+## [11] &quot;Cote d&#39;Ivoire&quot;                                
+## [12] &quot;Congo, Democratic Republic of the&quot;</code></pre>
+<pre class="r"><code>sapply(strsplit(lifeexp_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre><code>##   [1] &quot;Monaco&quot;                                       
+##   [2] &quot;Singapore&quot;                                    
+##   [3] &quot;Macau&quot;                                        
+##   [4] &quot;Japan&quot;                                        
+##   [5] &quot;Canada&quot;                                       
+##   [6] &quot;San Marino&quot;                                   
+##   [7] &quot;Hong Kong&quot;                                    
+##   [8] &quot;Iceland&quot;                                      
+##   [9] &quot;Switzerland&quot;                                  
+##  [10] &quot;Andorra&quot;                                      
+##  [11] &quot;Guernsey&quot;                                     
+##  [12] &quot;Malta&quot;                                        
+##  [13] &quot;Australia&quot;                                    
+##  [14] &quot;Luxembourg&quot;                                   
+##  [15] &quot;Korea, South&quot;                                 
+##  [16] &quot;Israel&quot;                                       
+##  [17] &quot;Jersey&quot;                                       
+##  [18] &quot;Spain&quot;                                        
+##  [19] &quot;Italy&quot;                                        
+##  [20] &quot;Liechtenstein&quot;                                
+##  [21] &quot;Sweden&quot;                                       
+##  [22] &quot;Norway&quot;                                       
+##  [23] &quot;New Zealand&quot;                                  
+##  [24] &quot;Austria&quot;                                      
+##  [25] &quot;France&quot;                                       
+##  [26] &quot;Anguilla&quot;                                     
+##  [27] &quot;Cayman Islands&quot;                               
+##  [28] &quot;Isle of Man&quot;                                  
+##  [29] &quot;Bermuda&quot;                                      
+##  [30] &quot;Belgium&quot;                                      
+##  [31] &quot;Finland&quot;                                      
+##  [32] &quot;Slovenia&quot;                                     
+##  [33] &quot;United Kingdom&quot;                               
+##  [34] &quot;Puerto Rico&quot;                                  
+##  [35] &quot;Denmark&quot;                                      
+##  [36] &quot;Ireland&quot;                                      
+##  [37] &quot;Portugal&quot;                                     
+##  [38] &quot;Germany&quot;                                      
+##  [39] &quot;Netherlands&quot;                                  
+##  [40] &quot;Greece&quot;                                       
+##  [41] &quot;Saint Pierre and Miquelon&quot;                    
+##  [42] &quot;Faroe Islands&quot;                                
+##  [43] &quot;Taiwan&quot;                                       
+##  [44] &quot;Turks and Caicos Islands&quot;                     
+##  [45] &quot;Wallis and Futuna&quot;                            
+##  [46] &quot;Saint Martin&quot;                                 
+##  [47] &quot;Saint Barthelemy&quot;                             
+##  [48] &quot;Gibraltar&quot;                                    
+##  [49] &quot;United States&quot;                                
+##  [50] &quot;Saint Helena, Ascension, and Tristan da Cunha&quot;
+##  [51] &quot;Virgin Islands&quot;                               
+##  [52] &quot;Bahrain&quot;                                      
+##  [53] &quot;Qatar&quot;                                        
+##  [54] &quot;Costa Rica&quot;                                   
+##  [55] &quot;Chile&quot;                                        
+##  [56] &quot;Cyprus&quot;                                       
+##  [57] &quot;British Virgin Islands&quot;                       
+##  [58] &quot;Cuba&quot;                                         
+##  [59] &quot;Curacao&quot;                                      
+##  [60] &quot;United Arab Emirates&quot;                         
+##  [61] &quot;Albania&quot;                                      
+##  [62] &quot;Sint Maarten&quot;                                 
+##  [63] &quot;Kuwait&quot;                                       
+##  [64] &quot;Saint Lucia&quot;                                  
+##  [65] &quot;New Caledonia&quot;                                
+##  [66] &quot;Panama&quot;                                       
+##  [67] &quot;Lebanon&quot;                                      
+##  [68] &quot;Barbados&quot;                                     
+##  [69] &quot;French Polynesia&quot;                             
+##  [70] &quot;Uruguay&quot;                                      
+##  [71] &quot;Brunei&quot;                                       
+##  [72] &quot;Argentina&quot;                                    
+##  [73] &quot;Paraguay&quot;                                     
+##  [74] &quot;Dominica&quot;                                     
+##  [75] &quot;China&quot;                                        
+##  [76] &quot;Czechia&quot;                                      
+##  [77] &quot;Bosnia and Herzegovina&quot;                       
+##  [78] &quot;Aruba&quot;                                        
+##  [79] &quot;Estonia&quot;                                      
+##  [80] &quot;Antigua and Barbuda&quot;                          
+##  [81] &quot;Thailand&quot;                                     
+##  [82] &quot;Montenegro&quot;                                   
+##  [83] &quot;Guam&quot;                                         
+##  [84] &quot;Tonga&quot;                                        
+##  [85] &quot;Algeria&quot;                                      
+##  [86] &quot;Croatia&quot;                                      
+##  [87] &quot;Libya&quot;                                        
+##  [88] &quot;Cook Islands&quot;                                 
+##  [89] &quot;Saint Kitts and Nevis&quot;                        
+##  [90] &quot;Maldives&quot;                                     
+##  [91] &quot;Oman&quot;                                         
+##  [92] &quot;North Macedonia&quot;                              
+##  [93] &quot;Tunisia&quot;                                      
+##  [94] &quot;Slovakia&quot;                                     
+##  [95] &quot;Solomon Islands&quot;                              
+##  [96] &quot;Saint Vincent and the Grenadines&quot;             
+##  [97] &quot;Saudi Arabia&quot;                                 
+##  [98] &quot;Northern Mariana Islands&quot;                     
+##  [99] &quot;Romania&quot;                                      
+## [100] &quot;Sri Lanka&quot;                                    
+## [101] &quot;Poland&quot;                                       
+## [102] &quot;Armenia&quot;                                      
+## [103] &quot;Turkey&quot;                                       
+## [104] &quot;Bahamas, The&quot;                                 
+## [105] &quot;Seychelles&quot;                                   
+## [106] &quot;Malaysia&quot;                                     
+## [107] &quot;Trinidad and Tobago&quot;                          
+## [108] &quot;West Bank&quot;                                    
+## [109] &quot;Jordan&quot;                                       
+## [110] &quot;Latvia&quot;                                       
+## [111] &quot;Jamaica&quot;                                      
+## [112] &quot;Grenada&quot;                                      
+## [113] &quot;Brazil&quot;                                       
+## [114] &quot;Uzbekistan&quot;                                   
+## [115] &quot;Vietnam&quot;                                      
+## [116] &quot;Montserrat&quot;                                   
+## [117] &quot;Lithuania&quot;                                    
+## [118] &quot;Bulgaria&quot;                                     
+## [119] &quot;Hungary&quot;                                      
+## [120] &quot;Azerbaijan&quot;                                   
+## [121] &quot;El Salvador&quot;                                  
+## [122] &quot;American Samoa&quot;                               
+## [123] &quot;Vanuatu&quot;                                      
+## [124] &quot;Samoa&quot;                                        
+## [125] &quot;Iran&quot;                                         
+## [126] &quot;Gaza Strip&quot;                                   
+## [127] &quot;Mauritius&quot;                                    
+## [128] &quot;Serbia&quot;                                       
+## [129] &quot;Bangladesh&quot;                                   
+## [130] &quot;Marshall Islands&quot;                             
+## [131] &quot;Palau&quot;                                        
+## [132] &quot;Egypt&quot;                                        
+## [133] &quot;Micronesia, Federated States of&quot;              
+## [134] &quot;Colombia&quot;                                     
+## [135] &quot;Ecuador&quot;                                      
+## [136] &quot;Fiji&quot;                                         
+## [137] &quot;Syria&quot;                                        
+## [138] &quot;Belarus&quot;                                      
+## [139] &quot;Nicaragua&quot;                                    
+## [140] &quot;Mexico&quot;                                       
+## [141] &quot;Greenland&quot;                                    
+## [142] &quot;Venezuela&quot;                                    
+## [143] &quot;Belize&quot;                                       
+## [144] &quot;Cabo Verde&quot;                                   
+## [145] &quot;Morocco&quot;                                      
+## [146] &quot;Iraq&quot;                                         
+## [147] &quot;Bhutan&quot;                                       
+## [148] &quot;Indonesia&quot;                                    
+## [149] &quot;Guatemala&quot;                                    
+## [150] &quot;Korea, North&quot;                                 
+## [151] &quot;Kazakhstan&quot;                                   
+## [152] &quot;Honduras&quot;                                     
+## [153] &quot;Kosovo&quot;                                       
+## [154] &quot;Nepal&quot;                                        
+## [155] &quot;Malawi&quot;                                       
+## [156] &quot;Congo, Republic of the&quot;                       
+## [157] &quot;Kyrgyzstan&quot;                                   
+## [158] &quot;Georgia&quot;                                      
+## [159] &quot;Suriname&quot;                                     
+## [160] &quot;Dominican Republic&quot;                           
+## [161] &quot;Bolivia&quot;                                      
+## [162] &quot;Turkmenistan&quot;                                 
+## [163] &quot;Guyana&quot;                                       
+## [164] &quot;Russia&quot;                                       
+## [165] &quot;Togo&quot;                                         
+## [166] &quot;South Africa&quot;                                 
+## [167] &quot;Tajikistan&quot;                                   
+## [168] &quot;Mongolia&quot;                                     
+## [169] &quot;Cambodia&quot;                                     
+## [170] &quot;Philippines&quot;                                  
+## [171] &quot;Tanzania&quot;                                     
+## [172] &quot;Senegal&quot;                                      
+## [173] &quot;Ukraine&quot;                                      
+## [174] &quot;Timor-Leste&quot;                                  
+## [175] &quot;Gabon&quot;                                        
+## [176] &quot;Kenya&quot;                                        
+## [177] &quot;Burma&quot;                                        
+## [178] &quot;Pakistan&quot;                                     
+## [179] &quot;Moldova&quot;                                      
+## [180] &quot;Ghana&quot;                                        
+## [181] &quot;Papua New Guinea&quot;                             
+## [182] &quot;Uganda&quot;                                       
+## [183] &quot;Laos&quot;                                         
+## [184] &quot;Tuvalu&quot;                                       
+## [185] &quot;Peru&quot;                                         
+## [186] &quot;Madagascar&quot;                                   
+## [187] &quot;Nauru&quot;                                        
+## [188] &quot;Kiribati&quot;                                     
+## [189] &quot;Gambia, The&quot;                                  
+## [190] &quot;India&quot;                                        
+## [191] &quot;Yemen&quot;                                        
+## [192] &quot;Burundi&quot;                                      
+## [193] &quot;Comoros&quot;                                      
+## [194] &quot;Sudan&quot;                                        
+## [195] &quot;Sao Tome and Principe&quot;                        
+## [196] &quot;Ethiopia&quot;                                     
+## [197] &quot;Eritrea&quot;                                      
+## [198] &quot;Zimbabwe&quot;                                     
+## [199] &quot;Zambia&quot;                                       
+## [200] &quot;Rwanda&quot;                                       
+## [201] &quot;Botswana&quot;                                     
+## [202] &quot;Djibouti&quot;                                     
+## [203] &quot;Namibia&quot;                                      
+## [204] &quot;Mauritania&quot;                                   
+## [205] &quot;Haiti&quot;                                        
+## [206] &quot;Guinea&quot;                                       
+## [207] &quot;Guinea-Bissau&quot;                                
+## [208] &quot;Burkina Faso&quot;                                 
+## [209] &quot;Cameroon&quot;                                     
+## [210] &quot;Equatorial Guinea&quot;                            
+## [211] &quot;Mali&quot;                                         
+## [212] &quot;Cote d&#39;Ivoire&quot;                                
+## [213] &quot;Benin&quot;                                        
+## [214] &quot;Angola&quot;                                       
+## [215] &quot;Congo, Democratic Republic of the&quot;            
+## [216] &quot;Nigeria&quot;                                      
+## [217] &quot;Liberia&quot;                                      
+## [218] &quot;Niger&quot;                                        
+## [219] &quot;Eswatini&quot;                                     
+## [220] &quot;South Sudan&quot;                                  
+## [221] &quot;Lesotho&quot;                                      
+## [222] &quot;Chad&quot;                                         
+## [223] &quot;Sierra Leone&quot;                                 
+## [224] &quot;Mozambique&quot;                                   
+## [225] &quot;Somalia&quot;                                      
+## [226] &quot;Central African Republic&quot;                     
+## [227] &quot;Afghanistan&quot;</code></pre>
+<pre class="r"><code>lifeexp_subset$Country_Name &lt;- sapply(strsplit(lifeexp_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>lifeexp_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,lifeexp_subset$Country_Name,perl = T)]</code></pre>
+<pre><code>##  [1] &quot;Korea, South&quot;                                 
+##  [2] &quot;Saint Helena, Ascension, and Tristan da Cunha&quot;
+##  [3] &quot;Bahamas, The&quot;                                 
+##  [4] &quot;Micronesia, Federated States of&quot;              
+##  [5] &quot;Korea, North&quot;                                 
+##  [6] &quot;Congo, Republic of the&quot;                       
+##  [7] &quot;Timor-Leste&quot;                                  
+##  [8] &quot;Gambia, The&quot;                                  
+##  [9] &quot;Guinea-Bissau&quot;                                
+## [10] &quot;Cote d&#39;Ivoire&quot;                                
+## [11] &quot;Congo, Democratic Republic of the&quot;</code></pre>
+<pre class="r"><code>lifeexp_subset$Country_Name == trimws(lifeexp_subset$Country_Name)</code></pre>
+<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [106] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [121] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [136] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [151] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [166] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [181] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [226] TRUE TRUE</code></pre>
+<pre class="r"><code>lifeexp_subset$Region == trimws(lifeexp_subset$Region)</code></pre>
+<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [106] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [121] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [136] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [151] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [166] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [181] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [226] TRUE TRUE</code></pre>
+<pre class="r"><code>saveRDS(lifeexp_subset,&quot;lifeexpectancy.RDS&quot;)</code></pre>
+<pre class="r"><code>lifeexpectancyRDS=readRDS(&quot;lifeexpectancy.RDS&quot;)
+str(lifeexpectancyRDS)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ Country_Name   : chr  &quot;Monaco&quot; &quot;Singapore&quot; &quot;Macau&quot; &quot;Japan&quot; ...
+##  $ Life_Expectancy: num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
+##  $ Region         : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
+<pre class="r"><code>write.csv(lifeexp_subset,&quot;lifeexpectancy_cleaned.csv&quot;, row.names=FALSE)
+lifeexpectancycleanedCSV=read.csv(&quot;lifeexpectancy_cleaned.csv&quot;)
+str(lifeexpectancycleanedCSV)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ Country_Name   : chr  &quot;Monaco&quot; &quot;Singapore&quot; &quot;Macau&quot; &quot;Japan&quot; ...
+##  $ Life_Expectancy: num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
+##  $ Region         : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
+<pre class="r"><code>linkGit3=&quot;https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Infantmortalityrate.csv&quot;</code></pre>
+<pre class="r"><code>infmort=rio::import(file = linkGit3)</code></pre>
+<pre><code>## Warning in (function (input = &quot;&quot;, file = NULL, text = NULL, cmd = NULL, :
+## Detected 7 column names but the data has 6 columns. Filling rows automatically.
+## Set fill=TRUE explicitly to avoid this warning.</code></pre>
+<pre class="r"><code>str(infmort)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  7 variables:
+##  $ name               : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
+##  $ slug               : chr  &quot;afghanistan&quot; &quot;somalia&quot; &quot;central-african-republic&quot; &quot;equatorial-guinea&quot; ...
+##  $ deaths/1           : num  101.3 83.6 80.5 77.4 71.2 ...
+##  $ 000 live births    : int  2024 2024 2024 2024 2024 2024 2024 2024 2024 2024 ...
+##  $ date_of_information: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ ranking            : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...
+##  $ region             : logi  NA NA NA NA NA NA ...</code></pre>
+<pre class="r"><code>str(infmort)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  7 variables:
+##  $ name               : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
+##  $ slug               : chr  &quot;afghanistan&quot; &quot;somalia&quot; &quot;central-african-republic&quot; &quot;equatorial-guinea&quot; ...
+##  $ deaths/1           : num  101.3 83.6 80.5 77.4 71.2 ...
+##  $ 000 live births    : int  2024 2024 2024 2024 2024 2024 2024 2024 2024 2024 ...
+##  $ date_of_information: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ ranking            : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...
+##  $ region             : logi  NA NA NA NA NA NA ...</code></pre>
+<pre class="r"><code>head(infmort)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["deaths/1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["000 live births"],"name":[4],"type":["int"],"align":["right"]},{"label":["date_of_information"],"name":[5],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[6],"type":["chr"],"align":["left"]},{"label":["region"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"Afghanistan","2":"afghanistan","3":"101.3","4":"2024","5":"1","6":"South Asia","7":"NA","_rn_":"1"},{"1":"Somalia","2":"somalia","3":"83.6","4":"2024","5":"2","6":"Africa","7":"NA","_rn_":"2"},{"1":"Central African Republic","2":"central-african-republic","3":"80.5","4":"2024","5":"3","6":"Africa","7":"NA","_rn_":"3"},{"1":"Equatorial Guinea","2":"equatorial-guinea","3":"77.4","4":"2024","5":"4","6":"Africa","7":"NA","_rn_":"4"},{"1":"Sierra Leone","2":"sierra-leone","3":"71.2","4":"2024","5":"5","6":"Africa","7":"NA","_rn_":"5"},{"1":"Niger","2":"niger","3":"64.3","4":"2024","5":"6","6":"Africa","7":"NA","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code>tail(infmort)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["deaths/1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["000 live births"],"name":[4],"type":["int"],"align":["right"]},{"label":["date_of_information"],"name":[5],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[6],"type":["chr"],"align":["left"]},{"label":["region"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"Japan","2":"japan","3":"1.9","4":"2024","5":"222","6":"East and Southeast Asia","7":"NA","_rn_":"222"},{"1":"Norway","2":"norway","3":"1.8","4":"2024","5":"223","6":"Europe","7":"NA","_rn_":"223"},{"1":"Monaco","2":"monaco","3":"1.7","4":"2024","5":"224","6":"Europe","7":"NA","_rn_":"224"},{"1":"Iceland","2":"iceland","3":"1.6","4":"2024","5":"225","6":"Europe","7":"NA","_rn_":"225"},{"1":"Singapore","2":"singapore","3":"1.5","4":"2024","5":"226","6":"East and Southeast Asia","7":"NA","_rn_":"226"},{"1":"Slovenia","2":"slovenia","3":"1.5","4":"2024","5":"227","6":"Europe","7":"NA","_rn_":"227"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code>names(infmort)</code></pre>
+<pre><code>## [1] &quot;name&quot;                &quot;slug&quot;                &quot;deaths/1&quot;           
+## [4] &quot;000 live births&quot;     &quot;date_of_information&quot; &quot;ranking&quot;            
+## [7] &quot;region&quot;</code></pre>
+<pre class="r"><code>infmort_subset &lt;- infmort[, c(1,3,6)]</code></pre>
+<pre class="r"><code>names(infmort_subset)[3]&lt;- &quot;Region&quot;
+names(infmort_subset)[2]&lt;- &quot;Infant_Mortality_Rate&quot;
+names(infmort_subset)[1]&lt;- &quot;Country_Name&quot;</code></pre>
+<pre class="r"><code>str(infmort_subset)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ Country_Name         : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
+##  $ Infant_Mortality_Rate: num  101.3 83.6 80.5 77.4 71.2 ...
+##  $ Region               : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
+<pre class="r"><code>table(infmort_subset$Region)</code></pre>
+<pre><code>## 
+##                            Africa             Australia and Oceania 
+##                                55                                20 
+## Central America and the Caribbean                      Central Asia 
+##                                32                                 9 
+##           East and Southeast Asia                            Europe 
+##                                20                                49 
+##                       Middle East                     North America 
+##                                16                                 6 
+##                     South America                        South Asia 
+##                                12                                 8</code></pre>
+<pre class="r"><code>infmort_subset$Infant_Mortality_Rate[grep(&quot;\\D&quot;,infmort_subset$Infant_Mortality_Rate)]</code></pre>
+<pre><code>##   [1] 101.3  83.6  80.5  77.4  71.2  64.3  62.5  60.1  58.2  57.4  57.4  55.7
+##  [13]  55.6  54.9  53.7  52.9  52.5  51.5  48.9  46.4  46.1  45.7  45.2  44.6
+##  [25]  42.6  40.6  39.8  38.4  37.5  36.8  36.7  35.9  35.7  35.7  35.6  35.4
+##  [37]  33.4  32.6  32.2  32.1  31.9  31.5  31.2  31.1  30.6  30.4  29.6  29.6
+##  [49]  28.8  28.5  27.9  27.9  27.8  26.9  26.1  24.9  24.5  24.4  24.3  23.7
+##  [61]  22.9  22.4  22.3  21.9  21.7  21.7  21.7  21.1  20.9  20.6  19.4  19.1
+##  [73]  18.9  18.7  18.7  18.4  18.3  18.2  18.1  17.3  16.8  15.4  15.4  15.1
+##  [85]  15.1  15.1  15.1  15.1  14.4  14.3  14.2  14.1  13.9  13.9  13.8  13.7
+##  [97]  13.6  13.4  13.2  12.9  12.3  12.1  11.9  11.8  11.7  11.7  11.7  11.6
+## [109]  11.6  11.5  11.5  11.3  11.3  11.2  11.1  10.9  10.9  10.8  10.8  10.7
+## [121]  10.7  10.7  10.3  10.2   9.7   9.7   9.7   9.7   9.6   9.4   8.7   8.5
+## [133]   8.4   8.1   7.8   7.7   7.6   7.6   7.5   7.3   7.3   7.2   6.8   6.7
+## [145]   6.7   6.5   6.5   6.5   6.4   6.4   6.3   6.3   6.2   6.2   5.8   5.7
+## [157]   5.5   5.1   5.1   4.9   4.8   4.7   4.7   4.5   4.4   4.4   4.3   4.3
+## [169]   4.1   3.9   3.9   3.8   3.8   3.7   3.6   3.6   3.4   3.3   3.3   3.3
+## [181]   3.3   3.3   3.2   3.2   3.2   3.1   3.1   3.1   3.1   2.9   2.8   2.8
+## [193]   2.6   2.5   2.4   2.4   2.3   2.1   2.1   2.1   1.9   1.8   1.7   1.6
+## [205]   1.5   1.5</code></pre>
+<pre class="r"><code>infmort_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,infmort_subset$Country_Name,perl = T)]</code></pre>
+<pre><code>##  [1] &quot;Congo, Democratic Republic of the&quot;            
+##  [2] &quot;Cote d&#39;Ivoire&quot;                                
+##  [3] &quot;Guinea-Bissau&quot;                                
+##  [4] &quot;Gambia, The&quot;                                  
+##  [5] &quot;Timor-Leste&quot;                                  
+##  [6] &quot;Congo, Republic of the&quot;                       
+##  [7] &quot;Micronesia, Federated States of&quot;              
+##  [8] &quot;Turkey (Turkiye)&quot;                             
+##  [9] &quot;Saint Helena, Ascension, and Tristan da Cunha&quot;
+## [10] &quot;Korea, North&quot;                                 
+## [11] &quot;Bahamas, The&quot;                                 
+## [12] &quot;Korea, South&quot;</code></pre>
+<pre class="r"><code>sapply(strsplit(lifeexp_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre><code>##   [1] &quot;Monaco&quot;                                       
+##   [2] &quot;Singapore&quot;                                    
+##   [3] &quot;Macau&quot;                                        
+##   [4] &quot;Japan&quot;                                        
+##   [5] &quot;Canada&quot;                                       
+##   [6] &quot;San Marino&quot;                                   
+##   [7] &quot;Hong Kong&quot;                                    
+##   [8] &quot;Iceland&quot;                                      
+##   [9] &quot;Switzerland&quot;                                  
+##  [10] &quot;Andorra&quot;                                      
+##  [11] &quot;Guernsey&quot;                                     
+##  [12] &quot;Malta&quot;                                        
+##  [13] &quot;Australia&quot;                                    
+##  [14] &quot;Luxembourg&quot;                                   
+##  [15] &quot;Korea, South&quot;                                 
+##  [16] &quot;Israel&quot;                                       
+##  [17] &quot;Jersey&quot;                                       
+##  [18] &quot;Spain&quot;                                        
+##  [19] &quot;Italy&quot;                                        
+##  [20] &quot;Liechtenstein&quot;                                
+##  [21] &quot;Sweden&quot;                                       
+##  [22] &quot;Norway&quot;                                       
+##  [23] &quot;New Zealand&quot;                                  
+##  [24] &quot;Austria&quot;                                      
+##  [25] &quot;France&quot;                                       
+##  [26] &quot;Anguilla&quot;                                     
+##  [27] &quot;Cayman Islands&quot;                               
+##  [28] &quot;Isle of Man&quot;                                  
+##  [29] &quot;Bermuda&quot;                                      
+##  [30] &quot;Belgium&quot;                                      
+##  [31] &quot;Finland&quot;                                      
+##  [32] &quot;Slovenia&quot;                                     
+##  [33] &quot;United Kingdom&quot;                               
+##  [34] &quot;Puerto Rico&quot;                                  
+##  [35] &quot;Denmark&quot;                                      
+##  [36] &quot;Ireland&quot;                                      
+##  [37] &quot;Portugal&quot;                                     
+##  [38] &quot;Germany&quot;                                      
+##  [39] &quot;Netherlands&quot;                                  
+##  [40] &quot;Greece&quot;                                       
+##  [41] &quot;Saint Pierre and Miquelon&quot;                    
+##  [42] &quot;Faroe Islands&quot;                                
+##  [43] &quot;Taiwan&quot;                                       
+##  [44] &quot;Turks and Caicos Islands&quot;                     
+##  [45] &quot;Wallis and Futuna&quot;                            
+##  [46] &quot;Saint Martin&quot;                                 
+##  [47] &quot;Saint Barthelemy&quot;                             
+##  [48] &quot;Gibraltar&quot;                                    
+##  [49] &quot;United States&quot;                                
+##  [50] &quot;Saint Helena, Ascension, and Tristan da Cunha&quot;
+##  [51] &quot;Virgin Islands&quot;                               
+##  [52] &quot;Bahrain&quot;                                      
+##  [53] &quot;Qatar&quot;                                        
+##  [54] &quot;Costa Rica&quot;                                   
+##  [55] &quot;Chile&quot;                                        
+##  [56] &quot;Cyprus&quot;                                       
+##  [57] &quot;British Virgin Islands&quot;                       
+##  [58] &quot;Cuba&quot;                                         
+##  [59] &quot;Curacao&quot;                                      
+##  [60] &quot;United Arab Emirates&quot;                         
+##  [61] &quot;Albania&quot;                                      
+##  [62] &quot;Sint Maarten&quot;                                 
+##  [63] &quot;Kuwait&quot;                                       
+##  [64] &quot;Saint Lucia&quot;                                  
+##  [65] &quot;New Caledonia&quot;                                
+##  [66] &quot;Panama&quot;                                       
+##  [67] &quot;Lebanon&quot;                                      
+##  [68] &quot;Barbados&quot;                                     
+##  [69] &quot;French Polynesia&quot;                             
+##  [70] &quot;Uruguay&quot;                                      
+##  [71] &quot;Brunei&quot;                                       
+##  [72] &quot;Argentina&quot;                                    
+##  [73] &quot;Paraguay&quot;                                     
+##  [74] &quot;Dominica&quot;                                     
+##  [75] &quot;China&quot;                                        
+##  [76] &quot;Czechia&quot;                                      
+##  [77] &quot;Bosnia and Herzegovina&quot;                       
+##  [78] &quot;Aruba&quot;                                        
+##  [79] &quot;Estonia&quot;                                      
+##  [80] &quot;Antigua and Barbuda&quot;                          
+##  [81] &quot;Thailand&quot;                                     
+##  [82] &quot;Montenegro&quot;                                   
+##  [83] &quot;Guam&quot;                                         
+##  [84] &quot;Tonga&quot;                                        
+##  [85] &quot;Algeria&quot;                                      
+##  [86] &quot;Croatia&quot;                                      
+##  [87] &quot;Libya&quot;                                        
+##  [88] &quot;Cook Islands&quot;                                 
+##  [89] &quot;Saint Kitts and Nevis&quot;                        
+##  [90] &quot;Maldives&quot;                                     
+##  [91] &quot;Oman&quot;                                         
+##  [92] &quot;North Macedonia&quot;                              
+##  [93] &quot;Tunisia&quot;                                      
+##  [94] &quot;Slovakia&quot;                                     
+##  [95] &quot;Solomon Islands&quot;                              
+##  [96] &quot;Saint Vincent and the Grenadines&quot;             
+##  [97] &quot;Saudi Arabia&quot;                                 
+##  [98] &quot;Northern Mariana Islands&quot;                     
+##  [99] &quot;Romania&quot;                                      
+## [100] &quot;Sri Lanka&quot;                                    
+## [101] &quot;Poland&quot;                                       
+## [102] &quot;Armenia&quot;                                      
+## [103] &quot;Turkey&quot;                                       
+## [104] &quot;Bahamas, The&quot;                                 
+## [105] &quot;Seychelles&quot;                                   
+## [106] &quot;Malaysia&quot;                                     
+## [107] &quot;Trinidad and Tobago&quot;                          
+## [108] &quot;West Bank&quot;                                    
+## [109] &quot;Jordan&quot;                                       
+## [110] &quot;Latvia&quot;                                       
+## [111] &quot;Jamaica&quot;                                      
+## [112] &quot;Grenada&quot;                                      
+## [113] &quot;Brazil&quot;                                       
+## [114] &quot;Uzbekistan&quot;                                   
+## [115] &quot;Vietnam&quot;                                      
+## [116] &quot;Montserrat&quot;                                   
+## [117] &quot;Lithuania&quot;                                    
+## [118] &quot;Bulgaria&quot;                                     
+## [119] &quot;Hungary&quot;                                      
+## [120] &quot;Azerbaijan&quot;                                   
+## [121] &quot;El Salvador&quot;                                  
+## [122] &quot;American Samoa&quot;                               
+## [123] &quot;Vanuatu&quot;                                      
+## [124] &quot;Samoa&quot;                                        
+## [125] &quot;Iran&quot;                                         
+## [126] &quot;Gaza Strip&quot;                                   
+## [127] &quot;Mauritius&quot;                                    
+## [128] &quot;Serbia&quot;                                       
+## [129] &quot;Bangladesh&quot;                                   
+## [130] &quot;Marshall Islands&quot;                             
+## [131] &quot;Palau&quot;                                        
+## [132] &quot;Egypt&quot;                                        
+## [133] &quot;Micronesia, Federated States of&quot;              
+## [134] &quot;Colombia&quot;                                     
+## [135] &quot;Ecuador&quot;                                      
+## [136] &quot;Fiji&quot;                                         
+## [137] &quot;Syria&quot;                                        
+## [138] &quot;Belarus&quot;                                      
+## [139] &quot;Nicaragua&quot;                                    
+## [140] &quot;Mexico&quot;                                       
+## [141] &quot;Greenland&quot;                                    
+## [142] &quot;Venezuela&quot;                                    
+## [143] &quot;Belize&quot;                                       
+## [144] &quot;Cabo Verde&quot;                                   
+## [145] &quot;Morocco&quot;                                      
+## [146] &quot;Iraq&quot;                                         
+## [147] &quot;Bhutan&quot;                                       
+## [148] &quot;Indonesia&quot;                                    
+## [149] &quot;Guatemala&quot;                                    
+## [150] &quot;Korea, North&quot;                                 
+## [151] &quot;Kazakhstan&quot;                                   
+## [152] &quot;Honduras&quot;                                     
+## [153] &quot;Kosovo&quot;                                       
+## [154] &quot;Nepal&quot;                                        
+## [155] &quot;Malawi&quot;                                       
+## [156] &quot;Congo, Republic of the&quot;                       
+## [157] &quot;Kyrgyzstan&quot;                                   
+## [158] &quot;Georgia&quot;                                      
+## [159] &quot;Suriname&quot;                                     
+## [160] &quot;Dominican Republic&quot;                           
+## [161] &quot;Bolivia&quot;                                      
+## [162] &quot;Turkmenistan&quot;                                 
+## [163] &quot;Guyana&quot;                                       
+## [164] &quot;Russia&quot;                                       
+## [165] &quot;Togo&quot;                                         
+## [166] &quot;South Africa&quot;                                 
+## [167] &quot;Tajikistan&quot;                                   
+## [168] &quot;Mongolia&quot;                                     
+## [169] &quot;Cambodia&quot;                                     
+## [170] &quot;Philippines&quot;                                  
+## [171] &quot;Tanzania&quot;                                     
+## [172] &quot;Senegal&quot;                                      
+## [173] &quot;Ukraine&quot;                                      
+## [174] &quot;Timor-Leste&quot;                                  
+## [175] &quot;Gabon&quot;                                        
+## [176] &quot;Kenya&quot;                                        
+## [177] &quot;Burma&quot;                                        
+## [178] &quot;Pakistan&quot;                                     
+## [179] &quot;Moldova&quot;                                      
+## [180] &quot;Ghana&quot;                                        
+## [181] &quot;Papua New Guinea&quot;                             
+## [182] &quot;Uganda&quot;                                       
+## [183] &quot;Laos&quot;                                         
+## [184] &quot;Tuvalu&quot;                                       
+## [185] &quot;Peru&quot;                                         
+## [186] &quot;Madagascar&quot;                                   
+## [187] &quot;Nauru&quot;                                        
+## [188] &quot;Kiribati&quot;                                     
+## [189] &quot;Gambia, The&quot;                                  
+## [190] &quot;India&quot;                                        
+## [191] &quot;Yemen&quot;                                        
+## [192] &quot;Burundi&quot;                                      
+## [193] &quot;Comoros&quot;                                      
+## [194] &quot;Sudan&quot;                                        
+## [195] &quot;Sao Tome and Principe&quot;                        
+## [196] &quot;Ethiopia&quot;                                     
+## [197] &quot;Eritrea&quot;                                      
+## [198] &quot;Zimbabwe&quot;                                     
+## [199] &quot;Zambia&quot;                                       
+## [200] &quot;Rwanda&quot;                                       
+## [201] &quot;Botswana&quot;                                     
+## [202] &quot;Djibouti&quot;                                     
+## [203] &quot;Namibia&quot;                                      
+## [204] &quot;Mauritania&quot;                                   
+## [205] &quot;Haiti&quot;                                        
+## [206] &quot;Guinea&quot;                                       
+## [207] &quot;Guinea-Bissau&quot;                                
+## [208] &quot;Burkina Faso&quot;                                 
+## [209] &quot;Cameroon&quot;                                     
+## [210] &quot;Equatorial Guinea&quot;                            
+## [211] &quot;Mali&quot;                                         
+## [212] &quot;Cote d&#39;Ivoire&quot;                                
+## [213] &quot;Benin&quot;                                        
+## [214] &quot;Angola&quot;                                       
+## [215] &quot;Congo, Democratic Republic of the&quot;            
+## [216] &quot;Nigeria&quot;                                      
+## [217] &quot;Liberia&quot;                                      
+## [218] &quot;Niger&quot;                                        
+## [219] &quot;Eswatini&quot;                                     
+## [220] &quot;South Sudan&quot;                                  
+## [221] &quot;Lesotho&quot;                                      
+## [222] &quot;Chad&quot;                                         
+## [223] &quot;Sierra Leone&quot;                                 
+## [224] &quot;Mozambique&quot;                                   
+## [225] &quot;Somalia&quot;                                      
+## [226] &quot;Central African Republic&quot;                     
+## [227] &quot;Afghanistan&quot;</code></pre>
+<pre class="r"><code>infmort_subset$Country_Name &lt;- sapply(strsplit(infmort_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>infmort_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,infmort_subset$Country_Name,perl = T)]</code></pre>
+<pre><code>##  [1] &quot;Congo, Democratic Republic of the&quot;            
+##  [2] &quot;Cote d&#39;Ivoire&quot;                                
+##  [3] &quot;Guinea-Bissau&quot;                                
+##  [4] &quot;Gambia, The&quot;                                  
+##  [5] &quot;Timor-Leste&quot;                                  
+##  [6] &quot;Congo, Republic of the&quot;                       
+##  [7] &quot;Micronesia, Federated States of&quot;              
+##  [8] &quot;Saint Helena, Ascension, and Tristan da Cunha&quot;
+##  [9] &quot;Korea, North&quot;                                 
+## [10] &quot;Bahamas, The&quot;                                 
+## [11] &quot;Korea, South&quot;</code></pre>
+<pre class="r"><code>infmort_subset$Country_Name == trimws(infmort_subset$Country_Name)</code></pre>
+<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [106] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [121] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [136] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [151] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [166] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [181] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [226] TRUE TRUE</code></pre>
+<pre class="r"><code>infmort_subset$Region == trimws(infmort_subset$Region)</code></pre>
+<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [106] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [121] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [136] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [151] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [166] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [181] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [226] TRUE TRUE</code></pre>
+<pre class="r"><code>saveRDS(infmort_subset,&quot;infantmortality.RDS&quot;)</code></pre>
+<pre class="r"><code>infantmortalityRDS=readRDS(&quot;infantmortality.RDS&quot;)
+str(infantmortalityRDS)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ Country_Name         : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
+##  $ Infant_Mortality_Rate: num  101.3 83.6 80.5 77.4 71.2 ...
+##  $ Region               : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
+<pre class="r"><code>write.csv(infmort_subset,&quot;infantmortality_cleaned.csv&quot;, row.names=FALSE)
+infantmortalitycleanedCSV=read.csv(&quot;infantmortality_cleaned.csv&quot;)</code></pre>
+<pre class="r"><code>str(infantmortalitycleanedCSV)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ Country_Name         : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
+##  $ Infant_Mortality_Rate: num  101.3 83.6 80.5 77.4 71.2 ...
+##  $ Region               : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
 
 
 
