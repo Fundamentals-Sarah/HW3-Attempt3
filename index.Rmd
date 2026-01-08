@@ -6,66 +6,82 @@ output:
 ---
 
 ```{r}
+#I load the csv file from github
 linkGit1="https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Maternalmortalityratio.csv"
 ```
 ```{r}
+#I import rio package.
 matmort=rio::import(file = linkGit1)
 ```
 
 ```{r}
+#I generate a high level overview of what is in the CSV file, so I can see if elements are being read in correctly by R
 str(matmort)
 ```
 
 ```{r}
+#I want to see the first few rows of my spreadsheet to check it looks right.
 head(matmort)
 ```
 ```{r}
+#I want to see the last few rows to be sure it looks right.
 tail(matmort)
 ```
 ```{r}
+#I want a list of the column names, numbered.
 names(matmort)
 ```
 
 
 ```{r}
+#I want to get rid of region column because it is NA due to how the data pulled in
 names(matmort)[names(matmort)!='region']
 ```
 
 ```{r}
+#I create a data subset that includes only the columns I want to keep and I rename those columns
 matmort_subset <- matmort[, c(1,3,6)]
 names(matmort_subset)[3]<- "Region"
 names(matmort_subset)[2]<- "Maternal_Death_Rate"
 names(matmort_subset)[1]<- "Country_Name"
 ```
 ```{r}
+#I generate the subset to be sure it looks right
 str(matmort_subset)
 ```
 
 ```{r}
+#I pull a list of those countries that use unusual characters that may pose a problem in analysis. I'm not concerned with the ' and , but the parantheses for Turkey is something I will want to clean
 matmort_subset$Country_Name[grep("[^a-zA-Z\\s]",matmort_subset$Country_Name,perl = T)]
 ```
 
 ```{r}
+#I assess whether there are any numbers that do not look right in my numerical data element
 matmort_subset$Maternal_Death_Rate[grep("\\D",matmort_subset$Maternal_Death_Rate)]
 ```
 
 ```{r}
+#I assess whether the regions are grouping correctly
 table(matmort_subset$Region)
 ```
 
 ```{r}
+#I program a split when a space and closed parenthesis is used to address the issue with Turkey
 sapply(strsplit(matmort_subset$Country_Name, split = ' (', fixed = TRUE), `[`, 1)
 ```
 
 ```{r}
+#I apply my programming so that Turkey shows only as Turkey
 matmort_subset$Country_Name <- sapply(strsplit(matmort_subset$Country_Name, split = ' (', fixed = TRUE), `[`, 1)
 ```
 
 ```{r}
+#I confirm that the above code worked as intended - Turkey is no longer on the list
 matmort_subset$Country_Name[grep("[^a-zA-Z\\s]",matmort_subset$Country_Name,perl = T)]
 ```
 
 ```{r}
+#I proactively assess whether there are any white spaces that need to be trimmed
 matmort_subset$Country_Name <- trimws(matmort_subset$Country_Name)
 matmort_subset$Country_Name == trimws(matmort_subset$Country_Name)
 matmort_subset$Region <- trimws(matmort_subset$Region)
@@ -73,190 +89,229 @@ matmort_subset$Region == trimws(matmort_subset$Region)
 ```
 
 ```{r}
+#I save my cleaned subset as an RDS file
 saveRDS(matmort_subset,"matmortality.RDS")
 ```
 
 ```{r}
+#I check the RDS file was generated as expected
 matmortalityRDS=readRDS("matmortality.RDS")
 str(matmortalityRDS)
 ```
 
 ```{r}
+#I create a cleaned csv file and check that it was generated as expected
 write.csv(matmort_subset,"maternal_cleaned.csv", row.names=FALSE)
 maternalcleanedCSV=read.csv("maternal_cleaned.csv")
 str(maternalcleanedCSV)
 ```
 
 ```{r}
+#I pull in my second dataset for cleaning
 linkGit2="https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Lifeexpectancyatbirth.csv"
 ```
 
 ```{r}
+#I import rio
 lifeexp=rio::import(file = linkGit2)
 ```
 
 ```{r}
+#I generate a high level overview of the data to see if R is reading and labelling data elements correctly
 str(lifeexp)
 ```
 
 ```{r}
+#I want to see the first few rows of the data to check for errors
 head(lifeexp)
 ```
 
 ```{r}
+#I want to see the last few rows of data to check for errors
 tail(lifeexp)
 ```
 
 ```{r}
+#I generate a numbered list of column names to help me with cleaning
 names(lifeexp)
 ```
 
 ```{r}
+#I subset my dataset to include only those columns I want to keep
 lifeexp_subset <- lifeexp[, c(1,3,6)]
 ```
 
 ```{r}
+#I rename those columns unique column names, and generate the data frame to check that it now looks as expected
 names(lifeexp_subset)[3]<- "Region2"
 names(lifeexp_subset)[2]<- "Life_Expectancy"
 names(lifeexp_subset)[1]<- "Country_Name2"
 str(lifeexp_subset)
 ```
 ```{r}
+#I check that the numbers appear as expected in the spreadsheet, and I see no issues
 lifeexp_subset$Life_Expectancy[grep("\\D",lifeexp_subset$Life_Expectancy)]
 ```
 
 ```{r}
+#I check that regions are being grouped accurately and I see no issues
 table(lifeexp_subset$Region2)
 ```
 
 ```{r}
+#I check that country names use characters that can be easily read, and again I'll want to clean up Turkey
 lifeexp_subset$Country_Name2[grep("[^a-zA-Z\\s]",lifeexp_subset$Country_Name2,perl = T)]
 ```
 
 ```{r}
+#I program a fix to address Turkey's formatting
 sapply(strsplit(lifeexp_subset$Country_Name2, split = ' (', fixed = TRUE), `[`, 1)
 ```
 
 ```{r}
+#I apply the fix to address the formatting issue with Turkey
 lifeexp_subset$Country_Name2 <- sapply(strsplit(lifeexp_subset$Country_Name2, split = ' (', fixed = TRUE), `[`, 1)
 ```
 
 ```{r}
+#I confirm that Turkey is now no longer on the list
 lifeexp_subset$Country_Name2[grep("[^a-zA-Z\\s]",lifeexp_subset$Country_Name2,perl = T)]
 ```
 
 ```{r}
+#I ensure there are no white spaces in country name
 lifeexp_subset$Country_Name2 == trimws(lifeexp_subset$Country_Name2)
 ```
 
 ```{r}
+#I confirm there are no white spaces in region variable
 lifeexp_subset$Region2 == trimws(lifeexp_subset$Region2)
 ```
 
 ```{r}
+#I save the cleaned subset as a RDS file
 saveRDS(lifeexp_subset,"lifeexpectancy.RDS")
 ```
 
 ```{r}
+#I name the file object and generate the data frame to be sure it looks right
 lifeexpectancyRDS=readRDS("lifeexpectancy.RDS")
 str(lifeexpectancyRDS)
 ```
 
 ```{r}
+#I save the cleaned data as a csv file and generate the data frame to be sure it looks like in the cleaned csv file
 write.csv(lifeexp_subset,"lifeexpectancy_cleaned.csv", row.names=FALSE)
 lifeexpectancycleanedCSV=read.csv("lifeexpectancy_cleaned.csv")
 str(lifeexpectancycleanedCSV)
 ```
 
 ```{r}
+#I load the third spreadsheet in from Github
 linkGit3="https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Infantmortalityrate.csv"
 ```
 
 ```{r}
+#I import rio for the file
 infmort=rio::import(file = linkGit3)
 ```
 
 ```{r}
+#I generate a high level overview of the data frame, showing how R is reading in my variables
 str(infmort)
 ```
 
 ```{r}
-str(infmort)
-```
-
-```{r}
+#I look at the first few rows of my data to assess how the information is organized and whether it pulled in correctly
 head(infmort)
 ```
 
 ```{r}
+#I also assess the last few rows
 tail(infmort)
 ```
 
 ```{r}
+#I generate a numbered list of the column names so I can easily locate them in the following code
 names(infmort)
 ```
 
 ```{r}
+#I identify the columns I want to keep by numbering, making a subset
 infmort_subset <- infmort[, c(1,3,6)]
 ```
 
 ```{r}
+#I give my columns unique names
 names(infmort_subset)[3]<- "Region3"
 names(infmort_subset)[2]<- "Infant_Mortality_Rate"
 names(infmort_subset)[1]<- "Country_Name3"
 ```
 
 ```{r}
+#I check that the subset looks how I want it to
 str(infmort_subset)
 ```
 
 ```{r}
+#I check that Regions are correctly categorized
 table(infmort_subset$Region3)
 ```
 
 ```{r}
+#I check that digits look right in the numerical field
 infmort_subset$Infant_Mortality_Rate[grep("\\D",infmort_subset$Infant_Mortality_Rate)]
 ```
 
 ```{r}
+#I check for unusual characters in the country name
 infmort_subset$Country_Name3[grep("[^a-zA-Z\\s]",infmort_subset$Country_Name3,perl = T)]
 ```
 
 ```{r}
+#I create code to fix Turkey
 sapply(strsplit(infmort_subset$Country_Name3, split = ' (', fixed = TRUE), `[`, 1)
 ```
 
 ```{r}
+#I apply my change to the country name column
 infmort_subset$Country_Name3 <- sapply(strsplit(infmort_subset$Country_Name3, split = ' (', fixed = TRUE), `[`, 1)
 ```
 
 ```{r}
+#I see that the closed parantheses is now removed from Turkey
 infmort_subset$Country_Name3[grep("[^a-zA-Z\\s]",infmort_subset$Country_Name3,perl = T)]
 ```
 
 ```{r}
+#I ensure no white spaces in Country Name
 infmort_subset$Country_Name3 == trimws(infmort_subset$Country_Name3)
 ```
 
 ```{r}
+#I ensure no white spaces in region names
 infmort_subset$Region3 == trimws(infmort_subset$Region3)
 ```
 
 ```{r}
+#I save as an RDS file
 saveRDS(infmort_subset,"infantmortality.RDS")
 ```
 
 ```{r}
+#I name my file and ensure it is pulled in correctly in the RDS format
 infantmortalityRDS=readRDS("infantmortality.RDS")
 str(infantmortalityRDS)
 ```
 
 ```{r}
+#I save my cleaned file as a csv
 write.csv(infmort_subset,"infantmortality_cleaned.csv", row.names=FALSE)
 infantmortalitycleanedCSV=read.csv("infantmortality_cleaned.csv")
 ```
 
 ```{r}
+#I check that the cleaned csv can be read in correctly
 str(infantmortalitycleanedCSV)
 ```
 

@@ -1624,12 +1624,15 @@ display: none;
 </div>
 
 
-<pre class="r"><code>linkGit1=&quot;https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Maternalmortalityratio.csv&quot;</code></pre>
-<pre class="r"><code>matmort=rio::import(file = linkGit1)</code></pre>
+<pre class="r"><code>#I load the csv file from github
+linkGit1=&quot;https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Maternalmortalityratio.csv&quot;</code></pre>
+<pre class="r"><code>#I import rio package.
+matmort=rio::import(file = linkGit1)</code></pre>
 <pre><code>## Warning in (function (input = &quot;&quot;, file = NULL, text = NULL, cmd = NULL, :
 ## Detected 7 column names but the data has 6 columns. Filling rows automatically.
 ## Set fill=TRUE explicitly to avoid this warning.</code></pre>
-<pre class="r"><code>str(matmort)</code></pre>
+<pre class="r"><code>#I generate a high level overview of what is in the CSV file, so I can see if elements are being read in correctly by R
+str(matmort)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    196 obs. of  7 variables:
 ##  $ name               : chr  &quot;Nigeria&quot; &quot;Chad&quot; &quot;South Sudan&quot; &quot;Central African Republic&quot; ...
 ##  $ slug               : chr  &quot;nigeria&quot; &quot;chad&quot; &quot;south-sudan&quot; &quot;central-african-republic&quot; ...
@@ -1638,44 +1641,53 @@ display: none;
 ##  $ date_of_information: int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ ranking            : chr  &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...
 ##  $ region             : logi  NA NA NA NA NA NA ...</code></pre>
-<pre class="r"><code>head(matmort)</code></pre>
+<pre class="r"><code>#I want to see the first few rows of my spreadsheet to check it looks right.
+head(matmort)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["deaths/100"],"name":[3],"type":["int"],"align":["right"]},{"label":["000 live births"],"name":[4],"type":["int"],"align":["right"]},{"label":["date_of_information"],"name":[5],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[6],"type":["chr"],"align":["left"]},{"label":["region"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"Nigeria","2":"nigeria","3":"993","4":"2023","5":"1","6":"Africa","7":"NA","_rn_":"1"},{"1":"Chad","2":"chad","3":"748","4":"2023","5":"2","6":"Africa","7":"NA","_rn_":"2"},{"1":"South Sudan","2":"south-sudan","3":"692","4":"2023","5":"3","6":"Africa","7":"NA","_rn_":"3"},{"1":"Central African Republic","2":"central-african-republic","3":"692","4":"2023","5":"4","6":"Africa","7":"NA","_rn_":"4"},{"1":"Liberia","2":"liberia","3":"628","4":"2023","5":"5","6":"Africa","7":"NA","_rn_":"5"},{"1":"Somalia","2":"somalia","3":"563","4":"2023","5":"6","6":"Africa","7":"NA","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<pre class="r"><code>tail(matmort)</code></pre>
+<pre class="r"><code>#I want to see the last few rows to be sure it looks right.
+tail(matmort)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["deaths/100"],"name":[3],"type":["int"],"align":["right"]},{"label":["000 live births"],"name":[4],"type":["int"],"align":["right"]},{"label":["date_of_information"],"name":[5],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[6],"type":["chr"],"align":["left"]},{"label":["region"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"Australia","2":"australia","3":"2","4":"2023","5":"191","6":"Australia and Oceania","7":"NA","_rn_":"191"},{"1":"Israel","2":"israel","3":"2","4":"2023","5":"192","6":"Middle East","7":"NA","_rn_":"192"},{"1":"Poland","2":"poland","3":"2","4":"2023","5":"193","6":"Europe","7":"NA","_rn_":"193"},{"1":"Belarus","2":"belarus","3":"1","4":"2023","5":"194","6":"Europe","7":"NA","_rn_":"194"},{"1":"Norway","2":"norway","3":"1","4":"2023","5":"195","6":"Europe","7":"NA","_rn_":"195"},{"1":"Cook Islands","2":"cook-islands","3":"0","4":"2023","5":"196","6":"Australia and Oceania","7":"NA","_rn_":"196"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<pre class="r"><code>names(matmort)</code></pre>
+<pre class="r"><code>#I want a list of the column names, numbered.
+names(matmort)</code></pre>
 <pre><code>## [1] &quot;name&quot;                &quot;slug&quot;                &quot;deaths/100&quot;         
 ## [4] &quot;000 live births&quot;     &quot;date_of_information&quot; &quot;ranking&quot;            
 ## [7] &quot;region&quot;</code></pre>
-<pre class="r"><code>names(matmort)[names(matmort)!=&#39;region&#39;]</code></pre>
+<pre class="r"><code>#I want to get rid of region column because it is NA due to how the data pulled in
+names(matmort)[names(matmort)!=&#39;region&#39;]</code></pre>
 <pre><code>## [1] &quot;name&quot;                &quot;slug&quot;                &quot;deaths/100&quot;         
 ## [4] &quot;000 live births&quot;     &quot;date_of_information&quot; &quot;ranking&quot;</code></pre>
-<pre class="r"><code>matmort_subset &lt;- matmort[, c(1,3,6)]
+<pre class="r"><code>#I create a data subset that includes only the columns I want to keep and I rename those columns
+matmort_subset &lt;- matmort[, c(1,3,6)]
 names(matmort_subset)[3]&lt;- &quot;Region&quot;
 names(matmort_subset)[2]&lt;- &quot;Maternal_Death_Rate&quot;
 names(matmort_subset)[1]&lt;- &quot;Country_Name&quot;</code></pre>
-<pre class="r"><code>str(matmort_subset)</code></pre>
+<pre class="r"><code>#I generate the subset to be sure it looks right
+str(matmort_subset)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    196 obs. of  3 variables:
 ##  $ Country_Name       : chr  &quot;Nigeria&quot; &quot;Chad&quot; &quot;South Sudan&quot; &quot;Central African Republic&quot; ...
 ##  $ Maternal_Death_Rate: int  993 748 692 692 628 563 521 518 505 494 ...
 ##  $ Region             : chr  &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
-<pre class="r"><code>matmort_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,matmort_subset$Country_Name,perl = T)]</code></pre>
+<pre class="r"><code>#I pull a list of those countries that use unusual characters that may pose a problem in analysis. I&#39;m not concerned with the &#39; and , but the parantheses for Turkey is something I will want to clean
+matmort_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,matmort_subset$Country_Name,perl = T)]</code></pre>
 <pre><code>##  [1] &quot;Guinea-Bissau&quot;                     &quot;Congo, Democratic Republic of the&quot;
 ##  [3] &quot;Cote d&#39;Ivoire&quot;                     &quot;Gambia, The&quot;                      
 ##  [5] &quot;Congo, Republic of the&quot;            &quot;Timor-Leste&quot;                      
 ##  [7] &quot;Micronesia, Federated States of&quot;   &quot;Bahamas, The&quot;                     
 ##  [9] &quot;Korea, North&quot;                      &quot;Turkey (Turkiye)&quot;                 
 ## [11] &quot;Korea, South&quot;</code></pre>
-<pre class="r"><code>matmort_subset$Maternal_Death_Rate[grep(&quot;\\D&quot;,matmort_subset$Maternal_Death_Rate)]</code></pre>
+<pre class="r"><code>#I assess whether there are any numbers that do not look right in my numerical data element
+matmort_subset$Maternal_Death_Rate[grep(&quot;\\D&quot;,matmort_subset$Maternal_Death_Rate)]</code></pre>
 <pre><code>## integer(0)</code></pre>
-<pre class="r"><code>table(matmort_subset$Region)</code></pre>
+<pre class="r"><code>#I assess whether the regions are grouping correctly
+table(matmort_subset$Region)</code></pre>
 <pre><code>## 
 ##                            Africa             Australia and Oceania 
 ##                                54                                14 
@@ -1687,7 +1699,8 @@ names(matmort_subset)[1]&lt;- &quot;Country_Name&quot;</code></pre>
 ##                                16                                 3 
 ##                     South America                        South Asia 
 ##                                12                                 8</code></pre>
-<pre class="r"><code>sapply(strsplit(matmort_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>#I program a split when a space and closed parenthesis is used to address the issue with Turkey
+sapply(strsplit(matmort_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
 <pre><code>##   [1] &quot;Nigeria&quot;                           &quot;Chad&quot;                             
 ##   [3] &quot;South Sudan&quot;                       &quot;Central African Republic&quot;         
 ##   [5] &quot;Liberia&quot;                           &quot;Somalia&quot;                          
@@ -1786,14 +1799,17 @@ names(matmort_subset)[1]&lt;- &quot;Country_Name&quot;</code></pre>
 ## [191] &quot;Australia&quot;                         &quot;Israel&quot;                           
 ## [193] &quot;Poland&quot;                            &quot;Belarus&quot;                          
 ## [195] &quot;Norway&quot;                            &quot;Cook Islands&quot;</code></pre>
-<pre class="r"><code>matmort_subset$Country_Name &lt;- sapply(strsplit(matmort_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
-<pre class="r"><code>matmort_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,matmort_subset$Country_Name,perl = T)]</code></pre>
+<pre class="r"><code>#I apply my programming so that Turkey shows only as Turkey
+matmort_subset$Country_Name &lt;- sapply(strsplit(matmort_subset$Country_Name, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>#I confirm that the above code worked as intended - Turkey is no longer on the list
+matmort_subset$Country_Name[grep(&quot;[^a-zA-Z\\s]&quot;,matmort_subset$Country_Name,perl = T)]</code></pre>
 <pre><code>##  [1] &quot;Guinea-Bissau&quot;                     &quot;Congo, Democratic Republic of the&quot;
 ##  [3] &quot;Cote d&#39;Ivoire&quot;                     &quot;Gambia, The&quot;                      
 ##  [5] &quot;Congo, Republic of the&quot;            &quot;Timor-Leste&quot;                      
 ##  [7] &quot;Micronesia, Federated States of&quot;   &quot;Bahamas, The&quot;                     
 ##  [9] &quot;Korea, North&quot;                      &quot;Korea, South&quot;</code></pre>
-<pre class="r"><code>matmort_subset$Country_Name &lt;- trimws(matmort_subset$Country_Name)
+<pre class="r"><code>#I proactively assess whether there are any white spaces that need to be trimmed
+matmort_subset$Country_Name &lt;- trimws(matmort_subset$Country_Name)
 matmort_subset$Country_Name == trimws(matmort_subset$Country_Name)</code></pre>
 <pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
@@ -1825,23 +1841,29 @@ matmort_subset$Region == trimws(matmort_subset$Region)</code></pre>
 ## [166] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [181] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [196] TRUE</code></pre>
-<pre class="r"><code>saveRDS(matmort_subset,&quot;matmortality.RDS&quot;)</code></pre>
-<pre class="r"><code>matmortalityRDS=readRDS(&quot;matmortality.RDS&quot;)
+<pre class="r"><code>#I save my cleaned subset as an RDS file
+saveRDS(matmort_subset,&quot;matmortality.RDS&quot;)</code></pre>
+<pre class="r"><code>#I check the RDS file was generated as expected
+matmortalityRDS=readRDS(&quot;matmortality.RDS&quot;)
 str(matmortalityRDS)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    196 obs. of  3 variables:
 ##  $ Country_Name       : chr  &quot;Nigeria&quot; &quot;Chad&quot; &quot;South Sudan&quot; &quot;Central African Republic&quot; ...
 ##  $ Maternal_Death_Rate: int  993 748 692 692 628 563 521 518 505 494 ...
 ##  $ Region             : chr  &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
-<pre class="r"><code>write.csv(matmort_subset,&quot;maternal_cleaned.csv&quot;, row.names=FALSE)
+<pre class="r"><code>#I create a cleaned csv file and check that it was generated as expected
+write.csv(matmort_subset,&quot;maternal_cleaned.csv&quot;, row.names=FALSE)
 maternalcleanedCSV=read.csv(&quot;maternal_cleaned.csv&quot;)
 str(maternalcleanedCSV)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    196 obs. of  3 variables:
 ##  $ Country_Name       : chr  &quot;Nigeria&quot; &quot;Chad&quot; &quot;South Sudan&quot; &quot;Central African Republic&quot; ...
 ##  $ Maternal_Death_Rate: int  993 748 692 692 628 563 521 518 505 494 ...
 ##  $ Region             : chr  &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
-<pre class="r"><code>linkGit2=&quot;https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Lifeexpectancyatbirth.csv&quot;</code></pre>
-<pre class="r"><code>lifeexp=rio::import(file = linkGit2)</code></pre>
-<pre class="r"><code>str(lifeexp)</code></pre>
+<pre class="r"><code>#I pull in my second dataset for cleaning
+linkGit2=&quot;https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Lifeexpectancyatbirth.csv&quot;</code></pre>
+<pre class="r"><code>#I import rio
+lifeexp=rio::import(file = linkGit2)</code></pre>
+<pre class="r"><code>#I generate a high level overview of the data to see if R is reading and labelling data elements correctly
+str(lifeexp)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    227 obs. of  6 variables:
 ##  $ name               : chr  &quot;Monaco&quot; &quot;Singapore&quot; &quot;Macau&quot; &quot;Japan&quot; ...
 ##  $ slug               : chr  &quot;monaco&quot; &quot;singapore&quot; &quot;macau&quot; &quot;japan&quot; ...
@@ -1849,23 +1871,28 @@ str(maternalcleanedCSV)</code></pre>
 ##  $ date_of_information: int  2024 2024 2024 2024 2024 2024 2024 2024 2024 2024 ...
 ##  $ ranking            : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ region             : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
-<pre class="r"><code>head(lifeexp)</code></pre>
+<pre class="r"><code>#I want to see the first few rows of the data to check for errors
+head(lifeexp)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["years"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["date_of_information"],"name":[4],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[5],"type":["int"],"align":["right"]},{"label":["region"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"Monaco","2":"monaco","3":"89.8","4":"2024","5":"1","6":"Europe","_rn_":"1"},{"1":"Singapore","2":"singapore","3":"86.7","4":"2024","5":"2","6":"East and Southeast Asia","_rn_":"2"},{"1":"Macau","2":"macau","3":"85.3","4":"2024","5":"3","6":"East and Southeast Asia","_rn_":"3"},{"1":"Japan","2":"japan","3":"85.2","4":"2024","5":"4","6":"East and Southeast Asia","_rn_":"4"},{"1":"Canada","2":"canada","3":"84.2","4":"2024","5":"5","6":"North America","_rn_":"5"},{"1":"San Marino","2":"san-marino","3":"84.2","4":"2024","5":"6","6":"Europe","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<pre class="r"><code>tail(lifeexp)</code></pre>
+<pre class="r"><code>#I want to see the last few rows of data to check for errors
+tail(lifeexp)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["years"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["date_of_information"],"name":[4],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[5],"type":["int"],"align":["right"]},{"label":["region"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"Chad","2":"chad","3":"60.0","4":"2024","5":"222","6":"Africa","_rn_":"222"},{"1":"Sierra Leone","2":"sierra-leone","3":"59.4","4":"2024","5":"223","6":"Africa","_rn_":"223"},{"1":"Mozambique","2":"mozambique","3":"58.3","4":"2024","5":"224","6":"Africa","_rn_":"224"},{"1":"Somalia","2":"somalia","3":"56.5","4":"2024","5":"225","6":"Africa","_rn_":"225"},{"1":"Central African Republic","2":"central-african-republic","3":"56.4","4":"2024","5":"226","6":"Africa","_rn_":"226"},{"1":"Afghanistan","2":"afghanistan","3":"54.4","4":"2024","5":"227","6":"South Asia","_rn_":"227"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<pre class="r"><code>names(lifeexp)</code></pre>
+<pre class="r"><code>#I generate a numbered list of column names to help me with cleaning
+names(lifeexp)</code></pre>
 <pre><code>## [1] &quot;name&quot;                &quot;slug&quot;                &quot;years&quot;              
 ## [4] &quot;date_of_information&quot; &quot;ranking&quot;             &quot;region&quot;</code></pre>
-<pre class="r"><code>lifeexp_subset &lt;- lifeexp[, c(1,3,6)]</code></pre>
-<pre class="r"><code>names(lifeexp_subset)[3]&lt;- &quot;Region2&quot;
+<pre class="r"><code>#I subset my dataset to include only those columns I want to keep
+lifeexp_subset &lt;- lifeexp[, c(1,3,6)]</code></pre>
+<pre class="r"><code>#I rename those columns unique column names, and generate the data frame to check that it now looks as expected
+names(lifeexp_subset)[3]&lt;- &quot;Region2&quot;
 names(lifeexp_subset)[2]&lt;- &quot;Life_Expectancy&quot;
 names(lifeexp_subset)[1]&lt;- &quot;Country_Name2&quot;
 str(lifeexp_subset)</code></pre>
@@ -1873,7 +1900,8 @@ str(lifeexp_subset)</code></pre>
 ##  $ Country_Name2  : chr  &quot;Monaco&quot; &quot;Singapore&quot; &quot;Macau&quot; &quot;Japan&quot; ...
 ##  $ Life_Expectancy: num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
 ##  $ Region2        : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
-<pre class="r"><code>lifeexp_subset$Life_Expectancy[grep(&quot;\\D&quot;,lifeexp_subset$Life_Expectancy)]</code></pre>
+<pre class="r"><code>#I check that the numbers appear as expected in the spreadsheet, and I see no issues
+lifeexp_subset$Life_Expectancy[grep(&quot;\\D&quot;,lifeexp_subset$Life_Expectancy)]</code></pre>
 <pre><code>##   [1] 89.8 86.7 85.3 85.2 84.2 84.2 83.9 83.8 83.6 83.6 83.5 83.4 83.4 83.1 82.9
 ##  [16] 82.9 82.9 82.7 82.6 82.6 82.5 82.5 82.5 82.3 82.2 82.2 82.2 82.1 82.1 81.9
 ##  [31] 81.9 81.9 81.9 81.8 81.7 81.6 81.3 81.1 80.9 80.9 80.9 80.7 80.4 80.3 80.3
@@ -1888,7 +1916,8 @@ str(lifeexp_subset)</code></pre>
 ## [166] 68.9 68.8 68.6 68.5 68.4 68.2 68.2 68.1 67.8 67.8 67.7 67.7 67.5 67.2 66.9
 ## [181] 66.6 66.4 65.9 65.9 65.9 65.6 64.6 64.5 64.2 64.2 63.9 63.2 63.2 62.9 62.6
 ## [196] 62.2 61.6 60.9 60.7 60.3 60.2 59.4 58.3 56.5 56.4 54.4</code></pre>
-<pre class="r"><code>table(lifeexp_subset$Region2)</code></pre>
+<pre class="r"><code>#I check that regions are being grouped accurately and I see no issues
+table(lifeexp_subset$Region2)</code></pre>
 <pre><code>## 
 ##                            Africa             Australia and Oceania 
 ##                                55                                20 
@@ -1900,7 +1929,8 @@ str(lifeexp_subset)</code></pre>
 ##                                16                                 6 
 ##                     South America                        South Asia 
 ##                                12                                 8</code></pre>
-<pre class="r"><code>lifeexp_subset$Country_Name2[grep(&quot;[^a-zA-Z\\s]&quot;,lifeexp_subset$Country_Name2,perl = T)]</code></pre>
+<pre class="r"><code>#I check that country names use characters that can be easily read, and again I&#39;ll want to clean up Turkey
+lifeexp_subset$Country_Name2[grep(&quot;[^a-zA-Z\\s]&quot;,lifeexp_subset$Country_Name2,perl = T)]</code></pre>
 <pre><code>##  [1] &quot;Korea, South&quot;                                 
 ##  [2] &quot;Saint Helena, Ascension, and Tristan da Cunha&quot;
 ##  [3] &quot;Turkey (Turkiye)&quot;                             
@@ -1913,7 +1943,8 @@ str(lifeexp_subset)</code></pre>
 ## [10] &quot;Guinea-Bissau&quot;                                
 ## [11] &quot;Cote d&#39;Ivoire&quot;                                
 ## [12] &quot;Congo, Democratic Republic of the&quot;</code></pre>
-<pre class="r"><code>sapply(strsplit(lifeexp_subset$Country_Name2, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>#I program a fix to address Turkey&#39;s formatting
+sapply(strsplit(lifeexp_subset$Country_Name2, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
 <pre><code>##   [1] &quot;Monaco&quot;                                       
 ##   [2] &quot;Singapore&quot;                                    
 ##   [3] &quot;Macau&quot;                                        
@@ -2141,8 +2172,10 @@ str(lifeexp_subset)</code></pre>
 ## [225] &quot;Somalia&quot;                                      
 ## [226] &quot;Central African Republic&quot;                     
 ## [227] &quot;Afghanistan&quot;</code></pre>
-<pre class="r"><code>lifeexp_subset$Country_Name2 &lt;- sapply(strsplit(lifeexp_subset$Country_Name2, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
-<pre class="r"><code>lifeexp_subset$Country_Name2[grep(&quot;[^a-zA-Z\\s]&quot;,lifeexp_subset$Country_Name2,perl = T)]</code></pre>
+<pre class="r"><code>#I apply the fix to address the formatting issue with Turkey
+lifeexp_subset$Country_Name2 &lt;- sapply(strsplit(lifeexp_subset$Country_Name2, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>#I confirm that Turkey is now no longer on the list
+lifeexp_subset$Country_Name2[grep(&quot;[^a-zA-Z\\s]&quot;,lifeexp_subset$Country_Name2,perl = T)]</code></pre>
 <pre><code>##  [1] &quot;Korea, South&quot;                                 
 ##  [2] &quot;Saint Helena, Ascension, and Tristan da Cunha&quot;
 ##  [3] &quot;Bahamas, The&quot;                                 
@@ -2154,7 +2187,8 @@ str(lifeexp_subset)</code></pre>
 ##  [9] &quot;Guinea-Bissau&quot;                                
 ## [10] &quot;Cote d&#39;Ivoire&quot;                                
 ## [11] &quot;Congo, Democratic Republic of the&quot;</code></pre>
-<pre class="r"><code>lifeexp_subset$Country_Name2 == trimws(lifeexp_subset$Country_Name2)</code></pre>
+<pre class="r"><code>#I ensure there are no white spaces in country name
+lifeexp_subset$Country_Name2 == trimws(lifeexp_subset$Country_Name2)</code></pre>
 <pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
@@ -2171,7 +2205,8 @@ str(lifeexp_subset)</code></pre>
 ## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [226] TRUE TRUE</code></pre>
-<pre class="r"><code>lifeexp_subset$Region2 == trimws(lifeexp_subset$Region2)</code></pre>
+<pre class="r"><code>#I confirm there are no white spaces in region variable
+lifeexp_subset$Region2 == trimws(lifeexp_subset$Region2)</code></pre>
 <pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
@@ -2188,26 +2223,32 @@ str(lifeexp_subset)</code></pre>
 ## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [226] TRUE TRUE</code></pre>
-<pre class="r"><code>saveRDS(lifeexp_subset,&quot;lifeexpectancy.RDS&quot;)</code></pre>
-<pre class="r"><code>lifeexpectancyRDS=readRDS(&quot;lifeexpectancy.RDS&quot;)
+<pre class="r"><code>#I save the cleaned subset as a RDS file
+saveRDS(lifeexp_subset,&quot;lifeexpectancy.RDS&quot;)</code></pre>
+<pre class="r"><code>#I name the file object and generate the data frame to be sure it looks right
+lifeexpectancyRDS=readRDS(&quot;lifeexpectancy.RDS&quot;)
 str(lifeexpectancyRDS)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
 ##  $ Country_Name2  : chr  &quot;Monaco&quot; &quot;Singapore&quot; &quot;Macau&quot; &quot;Japan&quot; ...
 ##  $ Life_Expectancy: num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
 ##  $ Region2        : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
-<pre class="r"><code>write.csv(lifeexp_subset,&quot;lifeexpectancy_cleaned.csv&quot;, row.names=FALSE)
+<pre class="r"><code>#I save the cleaned data as a csv file and generate the data frame to be sure it looks like in the cleaned csv file
+write.csv(lifeexp_subset,&quot;lifeexpectancy_cleaned.csv&quot;, row.names=FALSE)
 lifeexpectancycleanedCSV=read.csv(&quot;lifeexpectancy_cleaned.csv&quot;)
 str(lifeexpectancycleanedCSV)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
 ##  $ Country_Name2  : chr  &quot;Monaco&quot; &quot;Singapore&quot; &quot;Macau&quot; &quot;Japan&quot; ...
 ##  $ Life_Expectancy: num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
 ##  $ Region2        : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
-<pre class="r"><code>linkGit3=&quot;https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Infantmortalityrate.csv&quot;</code></pre>
-<pre class="r"><code>infmort=rio::import(file = linkGit3)</code></pre>
+<pre class="r"><code>#I load the third spreadsheet in from Github
+linkGit3=&quot;https://github.com/Fundamentals-Sarah/HW3-Attempt3/raw/refs/heads/main/Infantmortalityrate.csv&quot;</code></pre>
+<pre class="r"><code>#I import rio for the file
+infmort=rio::import(file = linkGit3)</code></pre>
 <pre><code>## Warning in (function (input = &quot;&quot;, file = NULL, text = NULL, cmd = NULL, :
 ## Detected 7 column names but the data has 6 columns. Filling rows automatically.
 ## Set fill=TRUE explicitly to avoid this warning.</code></pre>
-<pre class="r"><code>str(infmort)</code></pre>
+<pre class="r"><code>#I generate a high level overview of the data frame, showing how R is reading in my variables
+str(infmort)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    227 obs. of  7 variables:
 ##  $ name               : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
 ##  $ slug               : chr  &quot;afghanistan&quot; &quot;somalia&quot; &quot;central-african-republic&quot; &quot;equatorial-guinea&quot; ...
@@ -2216,41 +2257,39 @@ str(lifeexpectancycleanedCSV)</code></pre>
 ##  $ date_of_information: int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ ranking            : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...
 ##  $ region             : logi  NA NA NA NA NA NA ...</code></pre>
-<pre class="r"><code>str(infmort)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    227 obs. of  7 variables:
-##  $ name               : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
-##  $ slug               : chr  &quot;afghanistan&quot; &quot;somalia&quot; &quot;central-african-republic&quot; &quot;equatorial-guinea&quot; ...
-##  $ deaths/1           : num  101.3 83.6 80.5 77.4 71.2 ...
-##  $ 000 live births    : int  2024 2024 2024 2024 2024 2024 2024 2024 2024 2024 ...
-##  $ date_of_information: int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ ranking            : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...
-##  $ region             : logi  NA NA NA NA NA NA ...</code></pre>
-<pre class="r"><code>head(infmort)</code></pre>
+<pre class="r"><code>#I look at the first few rows of my data to assess how the information is organized and whether it pulled in correctly
+head(infmort)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["deaths/1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["000 live births"],"name":[4],"type":["int"],"align":["right"]},{"label":["date_of_information"],"name":[5],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[6],"type":["chr"],"align":["left"]},{"label":["region"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"Afghanistan","2":"afghanistan","3":"101.3","4":"2024","5":"1","6":"South Asia","7":"NA","_rn_":"1"},{"1":"Somalia","2":"somalia","3":"83.6","4":"2024","5":"2","6":"Africa","7":"NA","_rn_":"2"},{"1":"Central African Republic","2":"central-african-republic","3":"80.5","4":"2024","5":"3","6":"Africa","7":"NA","_rn_":"3"},{"1":"Equatorial Guinea","2":"equatorial-guinea","3":"77.4","4":"2024","5":"4","6":"Africa","7":"NA","_rn_":"4"},{"1":"Sierra Leone","2":"sierra-leone","3":"71.2","4":"2024","5":"5","6":"Africa","7":"NA","_rn_":"5"},{"1":"Niger","2":"niger","3":"64.3","4":"2024","5":"6","6":"Africa","7":"NA","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<pre class="r"><code>tail(infmort)</code></pre>
+<pre class="r"><code>#I also assess the last few rows
+tail(infmort)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[2],"type":["chr"],"align":["left"]},{"label":["deaths/1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["000 live births"],"name":[4],"type":["int"],"align":["right"]},{"label":["date_of_information"],"name":[5],"type":["int"],"align":["right"]},{"label":["ranking"],"name":[6],"type":["chr"],"align":["left"]},{"label":["region"],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"Japan","2":"japan","3":"1.9","4":"2024","5":"222","6":"East and Southeast Asia","7":"NA","_rn_":"222"},{"1":"Norway","2":"norway","3":"1.8","4":"2024","5":"223","6":"Europe","7":"NA","_rn_":"223"},{"1":"Monaco","2":"monaco","3":"1.7","4":"2024","5":"224","6":"Europe","7":"NA","_rn_":"224"},{"1":"Iceland","2":"iceland","3":"1.6","4":"2024","5":"225","6":"Europe","7":"NA","_rn_":"225"},{"1":"Singapore","2":"singapore","3":"1.5","4":"2024","5":"226","6":"East and Southeast Asia","7":"NA","_rn_":"226"},{"1":"Slovenia","2":"slovenia","3":"1.5","4":"2024","5":"227","6":"Europe","7":"NA","_rn_":"227"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<pre class="r"><code>names(infmort)</code></pre>
+<pre class="r"><code>#I generate a numbered list of the column names so I can easily locate them in the following code
+names(infmort)</code></pre>
 <pre><code>## [1] &quot;name&quot;                &quot;slug&quot;                &quot;deaths/1&quot;           
 ## [4] &quot;000 live births&quot;     &quot;date_of_information&quot; &quot;ranking&quot;            
 ## [7] &quot;region&quot;</code></pre>
-<pre class="r"><code>infmort_subset &lt;- infmort[, c(1,3,6)]</code></pre>
-<pre class="r"><code>names(infmort_subset)[3]&lt;- &quot;Region3&quot;
+<pre class="r"><code>#I identify the columns I want to keep by numbering, making a subset
+infmort_subset &lt;- infmort[, c(1,3,6)]</code></pre>
+<pre class="r"><code>#I give my columns unique names
+names(infmort_subset)[3]&lt;- &quot;Region3&quot;
 names(infmort_subset)[2]&lt;- &quot;Infant_Mortality_Rate&quot;
 names(infmort_subset)[1]&lt;- &quot;Country_Name3&quot;</code></pre>
-<pre class="r"><code>str(infmort_subset)</code></pre>
+<pre class="r"><code>#I check that the subset looks how I want it to
+str(infmort_subset)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
 ##  $ Country_Name3        : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
 ##  $ Infant_Mortality_Rate: num  101.3 83.6 80.5 77.4 71.2 ...
 ##  $ Region3              : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
-<pre class="r"><code>table(infmort_subset$Region3)</code></pre>
+<pre class="r"><code>#I check that Regions are correctly categorized
+table(infmort_subset$Region3)</code></pre>
 <pre><code>## 
 ##                            Africa             Australia and Oceania 
 ##                                55                                20 
@@ -2262,7 +2301,8 @@ names(infmort_subset)[1]&lt;- &quot;Country_Name3&quot;</code></pre>
 ##                                16                                 6 
 ##                     South America                        South Asia 
 ##                                12                                 8</code></pre>
-<pre class="r"><code>infmort_subset$Infant_Mortality_Rate[grep(&quot;\\D&quot;,infmort_subset$Infant_Mortality_Rate)]</code></pre>
+<pre class="r"><code>#I check that digits look right in the numerical field
+infmort_subset$Infant_Mortality_Rate[grep(&quot;\\D&quot;,infmort_subset$Infant_Mortality_Rate)]</code></pre>
 <pre><code>##   [1] 101.3  83.6  80.5  77.4  71.2  64.3  62.5  60.1  58.2  57.4  57.4  55.7
 ##  [13]  55.6  54.9  53.7  52.9  52.5  51.5  48.9  46.4  46.1  45.7  45.2  44.6
 ##  [25]  42.6  40.6  39.8  38.4  37.5  36.8  36.7  35.9  35.7  35.7  35.6  35.4
@@ -2281,7 +2321,8 @@ names(infmort_subset)[1]&lt;- &quot;Country_Name3&quot;</code></pre>
 ## [181]   3.3   3.3   3.2   3.2   3.2   3.1   3.1   3.1   3.1   2.9   2.8   2.8
 ## [193]   2.6   2.5   2.4   2.4   2.3   2.1   2.1   2.1   1.9   1.8   1.7   1.6
 ## [205]   1.5   1.5</code></pre>
-<pre class="r"><code>infmort_subset$Country_Name3[grep(&quot;[^a-zA-Z\\s]&quot;,infmort_subset$Country_Name3,perl = T)]</code></pre>
+<pre class="r"><code>#I check for unusual characters in the country name
+infmort_subset$Country_Name3[grep(&quot;[^a-zA-Z\\s]&quot;,infmort_subset$Country_Name3,perl = T)]</code></pre>
 <pre><code>##  [1] &quot;Congo, Democratic Republic of the&quot;            
 ##  [2] &quot;Cote d&#39;Ivoire&quot;                                
 ##  [3] &quot;Guinea-Bissau&quot;                                
@@ -2294,7 +2335,8 @@ names(infmort_subset)[1]&lt;- &quot;Country_Name3&quot;</code></pre>
 ## [10] &quot;Korea, North&quot;                                 
 ## [11] &quot;Bahamas, The&quot;                                 
 ## [12] &quot;Korea, South&quot;</code></pre>
-<pre class="r"><code>sapply(strsplit(infmort_subset$Country_Name3, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>#I create code to fix Turkey
+sapply(strsplit(infmort_subset$Country_Name3, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
 <pre><code>##   [1] &quot;Afghanistan&quot;                                  
 ##   [2] &quot;Somalia&quot;                                      
 ##   [3] &quot;Central African Republic&quot;                     
@@ -2522,8 +2564,10 @@ names(infmort_subset)[1]&lt;- &quot;Country_Name3&quot;</code></pre>
 ## [225] &quot;Iceland&quot;                                      
 ## [226] &quot;Singapore&quot;                                    
 ## [227] &quot;Slovenia&quot;</code></pre>
-<pre class="r"><code>infmort_subset$Country_Name3 &lt;- sapply(strsplit(infmort_subset$Country_Name3, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
-<pre class="r"><code>infmort_subset$Country_Name3[grep(&quot;[^a-zA-Z\\s]&quot;,infmort_subset$Country_Name3,perl = T)]</code></pre>
+<pre class="r"><code>#I apply my change to the country name column
+infmort_subset$Country_Name3 &lt;- sapply(strsplit(infmort_subset$Country_Name3, split = &#39; (&#39;, fixed = TRUE), `[`, 1)</code></pre>
+<pre class="r"><code>#I see that the closed parantheses is now removed from Turkey
+infmort_subset$Country_Name3[grep(&quot;[^a-zA-Z\\s]&quot;,infmort_subset$Country_Name3,perl = T)]</code></pre>
 <pre><code>##  [1] &quot;Congo, Democratic Republic of the&quot;            
 ##  [2] &quot;Cote d&#39;Ivoire&quot;                                
 ##  [3] &quot;Guinea-Bissau&quot;                                
@@ -2535,7 +2579,8 @@ names(infmort_subset)[1]&lt;- &quot;Country_Name3&quot;</code></pre>
 ##  [9] &quot;Korea, North&quot;                                 
 ## [10] &quot;Bahamas, The&quot;                                 
 ## [11] &quot;Korea, South&quot;</code></pre>
-<pre class="r"><code>infmort_subset$Country_Name3 == trimws(infmort_subset$Country_Name3)</code></pre>
+<pre class="r"><code>#I ensure no white spaces in Country Name
+infmort_subset$Country_Name3 == trimws(infmort_subset$Country_Name3)</code></pre>
 <pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
@@ -2552,7 +2597,8 @@ names(infmort_subset)[1]&lt;- &quot;Country_Name3&quot;</code></pre>
 ## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [226] TRUE TRUE</code></pre>
-<pre class="r"><code>infmort_subset$Region3 == trimws(infmort_subset$Region3)</code></pre>
+<pre class="r"><code>#I ensure no white spaces in region names
+infmort_subset$Region3 == trimws(infmort_subset$Region3)</code></pre>
 <pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
@@ -2569,16 +2615,20 @@ names(infmort_subset)[1]&lt;- &quot;Country_Name3&quot;</code></pre>
 ## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [226] TRUE TRUE</code></pre>
-<pre class="r"><code>saveRDS(infmort_subset,&quot;infantmortality.RDS&quot;)</code></pre>
-<pre class="r"><code>infantmortalityRDS=readRDS(&quot;infantmortality.RDS&quot;)
+<pre class="r"><code>#I save as an RDS file
+saveRDS(infmort_subset,&quot;infantmortality.RDS&quot;)</code></pre>
+<pre class="r"><code>#I name my file and ensure it is pulled in correctly in the RDS format
+infantmortalityRDS=readRDS(&quot;infantmortality.RDS&quot;)
 str(infantmortalityRDS)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
 ##  $ Country_Name3        : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
 ##  $ Infant_Mortality_Rate: num  101.3 83.6 80.5 77.4 71.2 ...
 ##  $ Region3              : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
-<pre class="r"><code>write.csv(infmort_subset,&quot;infantmortality_cleaned.csv&quot;, row.names=FALSE)
+<pre class="r"><code>#I save my cleaned file as a csv
+write.csv(infmort_subset,&quot;infantmortality_cleaned.csv&quot;, row.names=FALSE)
 infantmortalitycleanedCSV=read.csv(&quot;infantmortality_cleaned.csv&quot;)</code></pre>
-<pre class="r"><code>str(infantmortalitycleanedCSV)</code></pre>
+<pre class="r"><code>#I check that the cleaned csv can be read in correctly
+str(infantmortalitycleanedCSV)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
 ##  $ Country_Name3        : chr  &quot;Afghanistan&quot; &quot;Somalia&quot; &quot;Central African Republic&quot; &quot;Equatorial Guinea&quot; ...
 ##  $ Infant_Mortality_Rate: num  101.3 83.6 80.5 77.4 71.2 ...
